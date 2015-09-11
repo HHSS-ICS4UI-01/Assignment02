@@ -13,7 +13,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(binaryConvert(156));
+        System.out.println(convert(1000, 16));
     }
     
     public static int sumDigits(int n)
@@ -36,11 +36,25 @@ public class Exercise2 {
     
     public static String binaryConvert(int n)
     {
-        if (n <= 1)
+        if (n < 2)
         {
             return "" + n;
         }
         return "" + binaryConvert(n/2) + n%2;
+    }
+    
+    public static String convert(int n, int b)
+    {
+        if (n < b)
+        {
+            return "" + n;
+        }
+        if (n%b > 9)
+        {
+            return "" + convert(n/b, b) + (char)(n%b + 55);
+        }
+            
+        return "" + convert(n/b, b) + n%b;
     }
     
 }
