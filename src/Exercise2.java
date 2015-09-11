@@ -13,7 +13,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(triangle(3));
+        System.out.println(binaryConvert(156));
     }
     
     public static int sumDigits(int n)
@@ -32,6 +32,15 @@ public class Exercise2 {
             return 0;
         }
         return n + triangle(n-1);
+    }
+    
+    public static String binaryConvert(int n)
+    {
+        if (n <= 1)
+        {
+            return "" + n;
+        }
+        return "" + binaryConvert(n/2) + n%2;
     }
     
 }
