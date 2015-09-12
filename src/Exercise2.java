@@ -13,7 +13,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(convert(9, 16));
+        System.out.println(isPalindrome("lamont", 5));
     }
     
     public static int sumDigits(int n)
@@ -50,6 +50,15 @@ public class Exercise2 {
             return Integer.toHexString(n).toUpperCase();
         }
         return "" + convert(n/b, b) + Integer.toHexString(n%b).toUpperCase();
+    }
+    
+    public static boolean isPalindrome(String s, int length)
+    {
+        if (length <= 0)
+        {
+            return true;
+        }
+        return s.charAt(0) == s.charAt(length-1) && isPalindrome(s.substring(1, length), length-2);
     }
     
 }
