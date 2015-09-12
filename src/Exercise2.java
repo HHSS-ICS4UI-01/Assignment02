@@ -53,7 +53,6 @@ public class Exercise2 {
         {
             return "" + convert(n/b, b) + (char)(n%b + 55);
         }
-            
         return "" + convert(n/b, b) + n%b;
     }
     
