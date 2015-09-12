@@ -49,7 +49,7 @@ public class Exercise2 {
         {
             return "" + n;
         }
-        if (n%b > 9)
+        if (n%b > 9) // A, B, C, ...
         {
             return "" + convert(n/b, b) + (char)(n%b + 55);
         }
