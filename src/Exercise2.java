@@ -13,7 +13,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(convert(1000, 16));
+        System.out.println(convert(9, 16));
     }
     
     public static int sumDigits(int n)
@@ -47,13 +47,9 @@ public class Exercise2 {
     {
         if (n < b)
         {
-            return "" + n;
+            return Integer.toHexString(n).toUpperCase();
         }
-        if (n%b > 9) // A, B, C, ...
-        {
-            return "" + convert(n/b, b) + (char)(n%b + 55);
-        }
-        return "" + convert(n/b, b) + n%b;
+        return "" + convert(n/b, b) + Integer.toHexString(n%b).toUpperCase();
     }
     
 }
