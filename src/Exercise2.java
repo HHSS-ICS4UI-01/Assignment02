@@ -14,24 +14,25 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
     
-        int ans = sumDigits(136);
+        int ans = sumDigits(1235);
         System.out.println(ans);
         
-        int triAns = triangle(2);
+        int triAns = triangle(4);
         System.out.println(triAns);
     }
        
     static int sumDigits(int n){
-        if(n > 0 && n <= 9)
+        if(n < 9)
         {
             return n;
+        }else 
+        {
+            return sumDigits(n % 10) + sumDigits(n / 10);
         }
-        
-        return sumDigits(n % 10) + sumDigits(n / 10);
     }
     
     static int triangle(int n){ 
-        if(n == 0 || n == 1)
+        if(n <= 1)
         {
             return n;
         }
