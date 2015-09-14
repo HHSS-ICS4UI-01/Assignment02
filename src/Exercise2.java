@@ -17,7 +17,7 @@ public class Exercise2 {
         int ans = sumDigits(136);
         System.out.println(ans);
         
-        int triAns = triangle(3);
+        int triAns = triangle(2);
         System.out.println(triAns);
     }
        
@@ -31,15 +31,12 @@ public class Exercise2 {
     }
     
     static int triangle(int n){ 
-        if(n == 1)
+        if(n == 0 || n == 1)
         {
-            return 1;
-        }else if(n == 0)
-        {
-            return 0;
+            return n;
         }
         
-        return triangle(n);
+        return triangle(n) + triangle(n - 1);
         
     }
 }
