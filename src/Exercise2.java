@@ -5,7 +5,6 @@ import java.util.Scanner;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author branc2347
@@ -19,22 +18,37 @@ public class Exercise2 {
         Scanner input = new Scanner(System.in);
         System.out.print("Please enter a number:");
         int num1 = input.nextInt();
-        System.out.println(triangle(num1));
+        System.out.println(binaryConvert(num1));
     }
-     public static int sumDigits(int n){
-         if(n < 10){
-             return n;
-         }
-         else{
-             return ((n%10)+ sumDigits(n/10));
-         }
-     }
-     public static int triangle(int n){
-         if(n == 0 || n == 1){
-             return n;
-         } else{
-             return (n + triangle(n-1));
-         }
-         
-     }
+
+    public static int sumDigits(int n) {
+        if (n < 10) {
+            return n;
+        } else {
+            return ((n % 10) + sumDigits(n / 10));
+        }
+    }
+
+    public static int triangle(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        } else {
+            return (n + triangle(n - 1));
+        }
+    }
+
+    public static String binaryConvert(int n) {
+        if (n / 2 == 0) {
+            return "1";
+        } else {
+            if (n % 2 == 0) {
+                return binaryConvert(n / 2) + "0";
+            } else {
+                return binaryConvert(n / 2) + "1";
+            }
+        }
+    }
+    public static int convert(int n, int b){
+        
+    }
 }
