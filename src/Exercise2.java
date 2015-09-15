@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -13,7 +16,6 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(isPalindrome("lamont", 5));
     }
     
     public static int sumDigits(int n)
@@ -59,6 +61,26 @@ public class Exercise2 {
             return true;
         }
         return s.charAt(0) == s.charAt(length-1) && isPalindrome(s.substring(1, length), length-2);
+    }
+    
+    public static int thing(int[] arr, int r)
+    {
+        
+        if (arr.length == r || r == 0)
+        {
+//            int sum = 0;
+//            for (int i = 0; i < arr.length; i++)
+//            {
+//                sum += arr[i];
+//            }
+//            System.out.println(sum);
+            return 1;
+        }
+        else
+        {
+            int[] shortened = Arrays.copyOfRange(arr, 1, arr.length);
+            return thing(shortened, r-1) + thing(shortened,r);
+        }
     }
     
 }
