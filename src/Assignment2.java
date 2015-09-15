@@ -18,8 +18,8 @@ public class Assignment2 {
         // TODO code application logic here
 
 
-        int num = 322;
-        System.out.println(sumDigits(num));
+        int num = 3;
+        System.out.println(triangle(num));
     }
 
     public static int sumDigits(int n) {
@@ -31,6 +31,17 @@ public class Assignment2 {
             
         }
 
+    }
+    
+    public static int triangle(int n){
+      
+        if (n==1){
+            return 1;
+        }else{
+            return n + triangle(n-1);
+        }
+        
+        
     }
     
     
