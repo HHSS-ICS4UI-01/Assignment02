@@ -14,13 +14,17 @@ public class Exercise2 {
      */
     public static void main(String[] args) {
     
-        int ans = sumDigits(1235);
-        System.out.println(ans);
+        int sumAns = sumDigits(1354);
+        System.out.println(sumAns);
         
-        int triAns = triangle(4);
+        int triAns = triangle(3);
         System.out.println(triAns);
+        
+        int convertAns = binaryConvert(32);
+        System.out.println(convertAns);
     }
-       
+    
+    //problem 1
     static int sumDigits(int n){
         if(n < 9)
         {
@@ -31,13 +35,47 @@ public class Exercise2 {
         }
     }
     
+    //problem 2
     static int triangle(int n){ 
         if(n <= 1)
         {
             return n;
+        }else
+        {
+            return n + triangle(n - 1);
         }
         
-        return triangle(n) + triangle(n - 1);
+    }
+    
+    //problem 3
+    static int binaryConvert(int n){ 
+        
+        if(n <= 1)
+        {
+            return n;
+            
+        }else
+        {
+            System.out.print(n % 2);
+            return binaryConvert(n / 2);
+        }
         
     }
+    
+    //problem 4
+    static int convert(int n, int b)
+    {
+        if (n <= 1)
+                {
+                    return n;
+                }
+        return b;
+    }
+    
+    static boolean isPalindrome(String s, int length){
+        
+//        return s;
+        
+    }
+    
 }
