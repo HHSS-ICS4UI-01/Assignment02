@@ -22,6 +22,12 @@ public class Exercise2 {
         
         int convertAns = binaryConvert(32);
         System.out.println(convertAns);
+        
+        //problem 4 output
+        
+        //problem 5 output
+        boolean palindrome = isPalindrome("Racecar", 7);
+        System.out.println(palindrome);
     }
     
     //problem 1
@@ -50,21 +56,25 @@ public class Exercise2 {
     //problem 3
     static int binaryConvert(int n){ 
         
-        if(n <= 1)
+        if(n == 1)
         {
-            return n;
+            return 1;
+            
+        }else if(n == 0){
+            
+            return 0;
             
         }else
         {
-            System.out.print(n % 2);
+            int curNum = n % 2;
+            String num = String.valueOf("");
             return binaryConvert(n / 2);
         }
-        
     }
     
     //problem 4
-    static int convert(int n, int b)
-    {
+    static int convert(int n, int b){
+        
         if (n <= 1)
                 {
                     return n;
@@ -72,10 +82,23 @@ public class Exercise2 {
         return b;
     }
     
+    //problem 5
     static boolean isPalindrome(String s, int length){
         
-//        return s;
+        if (length == 1 || length == 0)
+        {
+            return true;
+        }
+        return false;
+//        if(s.charAt(0) != s.charAt(length - 1))
+//        {
+//            return false;
+//        }
         
     }
     
+    //problem 6
+    static int marbles(int n, int[] m){
+        return 1;
+    }
 }
