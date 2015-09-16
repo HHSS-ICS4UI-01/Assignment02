@@ -11,16 +11,7 @@ import java.util.Scanner;
  * @author murra9546
  */
 public class Problem1 {
-    static int sumDigits(int n)
-    {
-        if(n == 0)
-        {
-            return 1;
-        }else{
-            return (n%10) + ((n/10) %10);
-        }
-        
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -28,6 +19,45 @@ public class Problem1 {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a number");
         int num = input.nextInt();
-        System.out.println(sumDigits(num));
+        System.out.println(triangle(num));
     }
+    
+    //problem 1
+    static int sumDigits(int n)
+    {
+        if(n < 10)
+        {
+            return n;
+        }else{
+           return n%10 + sumDigits(n/10);
+        }
+        
+    }
+    
+    //problem 2
+    static int triangle(int n)
+    {
+        if(n == 1)
+        {
+            return n;
+        }else {
+            return n + triangle(n-1);
+        }
+    }
+    
+    //problem 3    
+    static int binaryConvert(int n)
+    {
+        
+        if(n == 1)
+        {
+            return n;
+        }else{
+            return binaryConvert(n/2) + ;
+        }
+        
+    }
+    
+    
+    
 }
