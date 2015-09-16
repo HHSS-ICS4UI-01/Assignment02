@@ -14,6 +14,16 @@ public class Problem3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println(binaryConvert(156));
+        
+    }
+    static String binaryConvert(int n){
+        if (n == 1){
+            return "1";
+        }
+        if (n == 0){
+            return "0";
+        }
+        return binaryConvert(n/2) + n%2;
     }
 }
