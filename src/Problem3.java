@@ -23,7 +23,7 @@ public class Problem3 {
             return n;
             
         } else {
-            return n ;
+            return binary(n / 2);
             
             
         }
