@@ -1,8 +1,11 @@
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author haidj9901
@@ -12,10 +15,10 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
+    static int[] test = {0,4};
+
     public static void main(String[] args) {
-        int[] test = {12, 14, 18, 33, 34};
         System.out.println(jimmyMarbles(50, test));
- 
     }
 
     public static int sumDigits(int n) {
@@ -58,6 +61,7 @@ public class Exercise2 {
         } else {
             return "" + convert(n / b, b) + n % b;
         }
+
     }
 
     public static boolean isPalindrome(String s, int length) {
@@ -74,12 +78,33 @@ public class Exercise2 {
             return false;
         }
     }
-    
-    public static int jimmyMarbles(int max, int[] marbleBags)
-    {
-        for (int x = 0; x < marbleBags.length; x++)
+
+    public static int jimmyMarbles(int max, int[] marbleBags) {
+        int z = 0;
+        if (marbleBags.length <= 1)
         {
-            
+            return marbleBags[0];
         }
+        for (int x = 0; x < marbleBags.length; x++) {
+            for (int y = 0; y < marbleBags.length; y++) {
+                if (marbleBags[x] <= max && marbleBags[y] <= max) {
+                    if (marbleBags[x] + marbleBags[y] <= max) {
+                        if (marbleBags[x] + marbleBags[y] > z) {
+                            z = marbleBags[x] + marbleBags[y];
+                        }
+                    }
+                }
+            }
+        }
+        return z;
+    }
+
+    public static int numPlanets(int n, int k) {
+        if (k == 0 || n == k) {
+            return 1;
+        } else if (k > n) {
+            return 0;
+        }
+        return numPlanets(n - 1, k - 1) + numPlanets(n - 1, k);
     }
 }
