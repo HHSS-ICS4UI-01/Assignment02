@@ -24,7 +24,7 @@ public class Problem2 {
             return n;
             
         } else {
-            return blocks(n - 1) + (n + 1);
+            return blocks(n - 2) + (n + 1);
             
         }
         
