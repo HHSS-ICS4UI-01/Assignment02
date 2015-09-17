@@ -15,10 +15,10 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
-    static int[] test = {0,4};
+    static int[] test = {1, 2, 7, 5};
 
     public static void main(String[] args) {
-        System.out.println(jimmyMarbles(50, test));
+        System.out.println(jimmyMarbles(16, test));
     }
 
     public static int sumDigits(int n) {
@@ -79,10 +79,35 @@ public class Exercise2 {
         }
     }
 
+    //max = 10 marblebags = {3, 2, 1, 8}
     public static int jimmyMarbles(int max, int[] marbleBags) {
+        int sum = 0;
+        for (Integer i : marbleBags) {
+            sum += i;
+        }
+        if (max == 0) {
+            return 0;
+        } else if (sum <= max) {
+            return sum;
+        }
+        return 0;
+    }
+
+    public static int jimmyMarblesLessBad(int max, int[] marbleBags) {
+        int test = 0;
+        if (max <= 0 || marbleBags.length == 0) {
+            return 0;
+        } else if (max > marbleBags[0] && marbleBags.length != 1) {
+            test = jimmyMarbles(max - marbleBags[0], Arrays.copyOfRange(marbleBags, 1, marbleBags.length));
+            System.out.println(test);
+        }
+        //return 1;
+        return jimmyMarbles(test, marbleBags);
+    }
+
+    public static int jimmyMarblesBad(int max, int[] marbleBags) {
         int z = 0;
-        if (marbleBags.length <= 1)
-        {
+        if (marbleBags.length <= 1) {
             return marbleBags[0];
         }
         for (int x = 0; x < marbleBags.length; x++) {
