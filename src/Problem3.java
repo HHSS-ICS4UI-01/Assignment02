@@ -43,11 +43,12 @@ public class Problem3 {
 
 
         System.out.print("Enter a number to convert to binary: ");
-
+        
+        //entering number to convery
         int n = input.nextInt();
 
 
-
+        //calling method in print statement
         System.out.println(n + " in binary is " + binary(n));
 
     }
