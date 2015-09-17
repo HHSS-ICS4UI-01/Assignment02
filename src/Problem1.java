@@ -20,8 +20,9 @@ public class Problem1 {
         Scanner input = new Scanner (System.in);
         System.out.println("Enter a number");
         int n = input.nextInt();
-        System.out.println(triangle(n));
-        
+        System.out.println("Enter a base between 2-16");
+        int b = input.nextInt();
+        System.out.println(convert(n,b));
         
 
     }
@@ -43,10 +44,21 @@ public class Problem1 {
         }else return n + triangle(n-1);    
     }
     
-    static int binaryConvert(int n){
+    static String binaryConvert(int n){
+        int q = 0;
+        int r = 0;
+        
         if (n == 1) {
-            
+            return "1"; 
+        }else{
+            r = n%2; 
+            q = n/2;
+            return binaryConvert(q) + r;
         }
+    }
+    
+    static int convert(int n, int b){
+        int 
     }
     
     
