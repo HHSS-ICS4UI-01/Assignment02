@@ -18,8 +18,10 @@ public class Problem1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a number");
-        int num = input.nextInt();
-        System.out.println(triangle(num));
+        int n = input.nextInt();
+        System.out.println("Enter a base");
+        int b = input.nextInt();
+        System.out.println(convert(n,b));
     }
     
     //problem 1
@@ -46,18 +48,25 @@ public class Problem1 {
     }
     
     //problem 3    
-    static int binaryConvert(int n)
+    static String binaryConvert(int n)
     {
-        
+        int q = 0;
+        int r = 0;
+     
         if(n == 1)
         {
-            return n;
+            return "1";
         }else{
-            return binaryConvert(n/2) + ;
+            r = n%2;
+            q = n/2;
+            return binaryConvert(q) + r;
         }
         
     }
     
-    
+    static int convert(int n, int b)
+    {
+        
+    }
     
 }
