@@ -15,24 +15,24 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
-    static int[] test = {1, 2, 7, 5};
+    static int[] test = {4, 3, 2, 1};
 
     public static void main(String[] args) {
-        System.out.println(jimmyMarbles(16, test));
+        System.out.println(jimmyMarbles(5, test));
     }
 
     public static int sumDigits(int n) {
-        if (String.valueOf(n).length() == 1) {
-            return n;
+        if (String.valueOf(n).length() == 1) { //if only one digit is passed into the function
+            return n; // return the digit
         }
-        return (n % 10 + sumDigits(n / 10));
+        return (n % 10 + sumDigits(n / 10)); //add the last digit to the sum of the rest of the digits
     }
 
     public static int triangle(int n) {
-        if (n == 1 || n == 0) {
+        if (n == 1 || n == 0) { //if we're on the last row (or on the 0th row somehow)
             return n;
         }
-        return n + triangle(n - 1);
+        return n + triangle(n - 1); //
     }
 
     public static String binaryConvert(int n) {
@@ -79,8 +79,36 @@ public class Exercise2 {
         }
     }
 
-    //max = 10 marblebags = {3, 2, 1, 8}
     public static int jimmyMarbles(int max, int[] marbleBags) {
+        int answer = 0;
+        if (marbleBags.length == 0) {
+            return 0;
+        }
+        int[] firstShort = Arrays.copyOfRange(marbleBags, 1, marbleBags.length);
+        int[] lastShort = Arrays.copyOfRange(marbleBags, 0, marbleBags.length - 1);
+        int firstOption = marbleBags[marbleBags.length - 1] + jimmyMarbles(max, lastShort);
+        int secondOption = jimmyMarbles(max, lastShort);
+        int thirdOption = marbleBags[0] + jimmyMarbles(max, firstShort);
+        int fourthOption = jimmyMarbles(max, firstShort);
+
+        if (firstOption >= secondOption) {
+            if (firstOption <= max) {
+                answer = firstOption;
+            }
+        } else {
+            answer = secondOption;
+        }
+        if (thirdOption >= fourthOption) {
+            if (thirdOption <= max && thirdOption >= firstOption) {
+                answer = thirdOption;
+            }
+        } else if (secondOption <= fourthOption) {
+            answer = fourthOption;
+        }
+        return answer;
+    }
+
+    public static int jimmyMarblesAwful(int max, int[] marbleBags) {
         int sum = 0;
         for (Integer i : marbleBags) {
             sum += i;
@@ -124,6 +152,7 @@ public class Exercise2 {
         return z;
     }
 
+    //5 planets, can only visit 3
     public static int numPlanets(int n, int k) {
         if (k == 0 || n == k) {
             return 1;
