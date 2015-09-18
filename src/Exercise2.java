@@ -16,7 +16,9 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(thing(new int[]{1,2,3,4}, 4));
+        int[] thing = new int[]{12,18,22,67,50,23};
+        Arrays.sort(thing);
+        System.out.println(jimmysMarbles(thing, 100));
     }
     
     public static int sumDigits(int n)
@@ -64,18 +66,22 @@ public class Exercise2 {
         return s.charAt(0) == s.charAt(length-1) && isPalindrome(s.substring(1, length), length-2);
     }
     
-    public static int thing(int[] arr, int choices)
+    public static int jimmysMarbles(int[] bags, int limit)
     {
-        
-        if (arr.length == 1 || choices == 1)
+        if (bags.length == 0)
         {
-            return arr[0];
+            return 0;
         }
+        int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
         
-        int[] newArr = Arrays.copyOfRange(arr, arr.length-choices, arr.length);
-        System.out.println(arr[0] + thing(newArr, choices-1));
-        System.out.println(arr[0] + thing(arr, choices-1));
-        return (thing(arr, choices-1) + thing(newArr, choices-1));
+        int num1 = bags[0] + jimmysMarbles(shortened, limit);
+        int num2 = jimmysMarbles(shortened, limit);
+        
+        if (num1 <= limit)
+        {
+            return num1;
+        }
+        return num2;
+        
     }
-    
 }
