@@ -17,8 +17,9 @@ public class Assignment2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int num = 126;
-        System.out.println(sumDigits(num));
+        int num = 1000;
+        int b = 8;
+        System.out.println(Convert(num,b));
     }
     //problem 1
     public static int sumDigits(int num)
@@ -68,6 +69,28 @@ public class Assignment2 {
     
     //problem 4
    
-    
+    public static String Convert(int num, int b)
+    {
+        if(num<=b)
+        {
+            return "" + num;
+        }
+        if(b>9)
+        {if(b == 16)
+        {
+            System.out.println("e" + b);
+        }    
+            
+        }
+        
+        if(num%b==0)
+        {
+           return (Convert(num/b, b) + "" + 0);
+        }
+        
+        
+            return (Convert(num/b,b) + num%b);
+        
+    }
     
 }
