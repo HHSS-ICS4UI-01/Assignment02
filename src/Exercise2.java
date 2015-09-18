@@ -13,7 +13,6 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    
         //problem 1 output
         int sumAns = sumDigits(10);
         System.out.println(sumAns);
@@ -33,6 +32,9 @@ public class Exercise2 {
         System.out.println(palindrome);
         
         //problem 6 output
+        int[] nums = {12,14,18,33,34};
+        int max = marbles(50, nums);
+        
     }
     
     //problem 1
@@ -65,11 +67,19 @@ public class Exercise2 {
             //return the sum of the number + the number subtract 1
             return n + triangle(n - 1);
         }
-        
+       
     }
     
     //problem 3
-    static int binaryConvert(int n){         
+    static int binaryConvert(int n){  
+        String nums;
+        String result = ("");
+        String reverse;
+        
+        nums = String.valueOf(n % 2);
+            result = result + nums;
+            System.out.print(result);
+            
         //if number is equal to 1
         if(n == 1)
         {
@@ -82,22 +92,36 @@ public class Exercise2 {
             return 0;
         //if number is greater than 1
         }else
-        {
-            String r = String.valueOf(n % 2);
-            System.out.print(r);
+        {      
+            
             //return the quotient of the number divided by 2
             return binaryConvert(n / 2);
         }
+        
+        
+        
+            
     }
     
     //problem 4
     static int convert(int n, int b){
         
+        String num;
+        
         if (n <= 1)
         {
             return n;
         }
-        return b;
+        
+        if(n % b >= 10)
+        {
+            if (n == 10)
+            {
+                
+            }
+        }
+        
+        return n / b;
     }
     
     //problem 5
@@ -131,11 +155,24 @@ public class Exercise2 {
             
             }
         }
-        
+       return true; 
     }
     
     //problem 6
     static int marbles(int n, int[] m){
-        return 1;
+        //set counter i to 0
+        int i = 0;
+        //set total marbles Jimmy has to 0
+        int mTotal = 0;
+        //
+        mTotal = m[i] + mTotal;
+        i++;
+        
+        if(i == m.length && mTotal <= n)
+        {
+            return mTotal;
+        }else{
+            return mTotal; //placeholder
+        }
     }
 }
