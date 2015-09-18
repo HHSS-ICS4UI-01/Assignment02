@@ -16,6 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println(thing(new int[]{1,2,3,4}, 4));
     }
     
     public static int sumDigits(int n)
@@ -63,24 +64,18 @@ public class Exercise2 {
         return s.charAt(0) == s.charAt(length-1) && isPalindrome(s.substring(1, length), length-2);
     }
     
-    public static int thing(int[] arr, int r)
+    public static int thing(int[] arr, int choices)
     {
         
-        if (arr.length == r || r == 0)
+        if (arr.length == 1 || choices == 1)
         {
-//            int sum = 0;
-//            for (int i = 0; i < arr.length; i++)
-//            {
-//                sum += arr[i];
-//            }
-//            System.out.println(sum);
-            return 1;
+            return arr[0];
         }
-        else
-        {
-            int[] shortened = Arrays.copyOfRange(arr, 1, arr.length);
-            return thing(shortened, r-1) + thing(shortened,r);
-        }
+        
+        int[] newArr = Arrays.copyOfRange(arr, arr.length-choices, arr.length);
+        System.out.println(arr[0] + thing(newArr, choices-1));
+        System.out.println(arr[0] + thing(arr, choices-1));
+        return (thing(arr, choices-1) + thing(newArr, choices-1));
     }
     
 }
