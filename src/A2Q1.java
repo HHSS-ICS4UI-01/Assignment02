@@ -33,11 +33,24 @@ public class A2Q1 {
         new Thing(kw,1,10);
         
         Robot karel = new Robot(kw,1,0, Direction.EAST);
+        karel.move();
         
+        while(true){
+            if (karel.countThingsInBackpack()< 7){
+        
+            karel.pickThing();
+            karel.move();
+        }else {
+               break;
+        }    
             
-            }if (karel.countThingsInBackpack()==7){
-                karel.turnLeft();
-            
+             
+                
+            }
+         karel.move();
+                karel.move();
+                karel.move();
+                
                 
             
                     
@@ -48,7 +61,8 @@ public class A2Q1 {
         
 }
 }
-}
+
+
 
 
         
