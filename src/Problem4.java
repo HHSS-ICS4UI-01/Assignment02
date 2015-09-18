@@ -27,7 +27,7 @@ public class Problem4 {
             //Enters the number as a string
             //Still have no idea how this recursion thing works, it just turns out I'm really good at guessing
             //how to get it to work
-            return convert(quotient, base) + remainder + "";
+            return convert(quotient, base) + remainder + ""; 
         }
     }
 
