@@ -4,6 +4,7 @@ import becker.robots.Direction;
 import becker.robots.Robot;
 import becker.robots.Thing;
 import becker.robots.Wall;
+import java.awt.Color;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -116,6 +117,55 @@ public class A2Q5 {
         new Wall(kw,9,6, Direction.SOUTH);
         new Wall(kw,9,5, Direction.SOUTH);
         new Wall(kw,9,4, Direction.SOUTH);
+        karel.setColor(Color.yellow);
+        while(true){
+            if (karel.canPickThing() && (karel.getAvenue() == 3)){
+                karel.turnLeft();
+                karel.move();
+                
+                        
+                
+            
+            
+            
+                
+                
+                
+            
+            
+            }else if(karel.getDirection() == Direction.WEST && (!karel.frontIsClear())){
+                karel.turnLeft();   
+                
+            }else if(karel.getStreet() == 10 && (karel.getAvenue()) == 3){
+                
+                    break;
+                    
+            }else if(!karel.frontIsClear()){
+                karel.turnLeft();
+                karel.turnLeft();
+                karel.turnLeft();
+            }else if(karel.canPickThing()){
+                karel.pickThing();
+                karel.move();
+            }else if(!karel.canPickThing() && (karel.getDirection() == Direction.WEST)){
+                karel.move();
+                
+            }else if(karel.getDirection() == Direction.SOUTH && (karel.frontIsClear())){
+                karel.move();
+            }else if(karel.canPickThing() && (karel.getAvenue() == 3)){
+                karel.turnLeft();
+            }else if(karel.getStreet() > 6 && (karel.getDirection() == Direction.EAST && (!karel.canPickThing()))){
+                karel.move();
+            
+                
+                   
+                }
+                
+                
+                
+                
+        }
+            
         
         
         
@@ -131,3 +181,6 @@ public class A2Q5 {
     }
     
 }
+
+
+
