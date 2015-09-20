@@ -16,7 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(jimmysMarbles(new int[]{4,3,3,0,2,3}, 11));
+        System.out.println(jimmysMarbles(new int[]{-1}, 8));
     }
     
     public static int sumDigits(int n)
@@ -72,16 +72,14 @@ public class Exercise2 {
         }
         int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
         
-        int num1 = bags[0] + jimmysMarbles(shortened, limit);
+        int num1 = bags[0] + jimmysMarbles(shortened, limit-bags[0]);
         int num2 = jimmysMarbles(shortened, limit);
-        if (num1 > num2 && num1 <= limit)
+        
+        if (num1 <= limit && limit >= 0 && num1 > num2)
         {
             return num1;
         }
-        if (num2 <= limit)
-        {
-            return num2;
-        }
-        return 0;
+        return num2;
+        
     }
 }
