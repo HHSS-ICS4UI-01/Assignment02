@@ -16,7 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(jimmysMarbles(new int[]{-1}, 8));
+        System.out.println(jimmysMarbles(new int[]{12 ,14 ,18 ,33, 34}, 50));
     }
     
     public static int sumDigits(int n)
@@ -66,20 +66,23 @@ public class Exercise2 {
     
     public static int jimmysMarbles(int[] bags, int limit)
     {
-        if (bags.length == 0)
+        if (bags.length == 0) // base case, number was not selected
         {
             return 0;
         }
         int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
         
-        int num1 = bags[0] + jimmysMarbles(shortened, limit-bags[0]);
-        int num2 = jimmysMarbles(shortened, limit);
+        // assuming first bag was chosen:
+        int newLimit = limit - bags[0]; // decrement the marble limit by the amount that was added, for the next iteration
+        int chosen = bags[0] + jimmysMarbles(shortened, newLimit);
+        // assuming first bag was not chosen:
+        int notChosen = jimmysMarbles(shortened, limit); // keep same limit as no marbles were added
         
-        if (num1 <= limit && limit >= 0 && num1 > num2)
+        if (chosen <= limit && chosen > notChosen) // because of the limit difference between chosen and notChosen, chosen could potentially be smaller than notChosen
         {
-            return num1;
+            return chosen;
         }
-        return num2;
+        return notChosen;
         
     }
 }
