@@ -1,5 +1,4 @@
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /*
@@ -15,10 +14,10 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
-    static int[] test = {4, 3, 2, 1};
+    static int[] test = {12, 22, 18, 67, 23, 50};
 
     public static void main(String[] args) {
-        System.out.println(jimmyMarbles(5, test));
+        System.out.println(jimmyMarbles(100, test));
     }
 
     public static int sumDigits(int n) {
@@ -80,7 +79,20 @@ public class Exercise2 {
     }
 
     public static int jimmyMarbles(int max, int[] marbleBags) {
-        int answer = 0;
+        if (marbleBags.length == 0) {
+            return 0;
+        }
+        int[] firstShort = Arrays.copyOfRange(marbleBags, 1, marbleBags.length);
+        int firstOption = jimmyMarbles(max - marbleBags[0], firstShort) + marbleBags[0];
+        int secondOption = jimmyMarbles(max, firstShort);
+
+        if (firstOption > secondOption && firstOption <= max) {
+            return firstOption;
+        }
+        return secondOption;
+    }
+
+    public static int jimmyMarblesImSoSorryThisExists(int max, int[] marbleBags) {
         if (marbleBags.length == 0) {
             return 0;
         }
@@ -91,20 +103,33 @@ public class Exercise2 {
         int thirdOption = marbleBags[0] + jimmyMarbles(max, firstShort);
         int fourthOption = jimmyMarbles(max, firstShort);
 
-        if (firstOption >= secondOption) {
-            if (firstOption <= max) {
-                answer = firstOption;
-            }
-        } else {
+        int answer = 0;
+        if (firstOption > secondOption && firstOption <= max) {
+            answer = firstOption;
+        } else if (secondOption <= max) {
             answer = secondOption;
         }
-        if (thirdOption >= fourthOption) {
-            if (thirdOption <= max && thirdOption >= firstOption) {
-                answer = thirdOption;
-            }
-        } else if (secondOption <= fourthOption) {
+        if (thirdOption > fourthOption && thirdOption <= max && thirdOption > answer) {
+            answer = thirdOption;
+        } else if (fourthOption <= max && fourthOption > answer) {
             answer = fourthOption;
         }
+        return answer;
+    }
+
+    public static int jimmyMarblesTerrible(int max, int[] marbleBags) {
+        if (marbleBags.length == 0) {
+            return 0;
+        }
+        int[] lastShort = Arrays.copyOfRange(marbleBags, 0, marbleBags.length - 1);
+        int firstOption = marbleBags[marbleBags.length - 1] + jimmyMarbles(max, lastShort);
+        int secondOption = jimmyMarbles(max, lastShort);
+
+        int answer = 0;
+        if (firstOption > secondOption && firstOption <= max) {
+            answer = firstOption;
+        }
+        answer = secondOption;
         return answer;
     }
 
