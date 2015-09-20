@@ -20,31 +20,37 @@ public class Exercise2 {
         System.out.println(jimmyMarbles(100, test));
     }
 
+    //this method returns the sum of the digits of a given number
     public static int sumDigits(int n) {
-        if (String.valueOf(n).length() == 1) { //if only one digit is passed into the function
+        if (String.valueOf(n).length() == 1) { //number has been reduced to one single digit
             return n; // return the digit
         }
-        return (n % 10 + sumDigits(n / 10)); //add the last digit to the sum of the rest of the digits
+        return (n % 10 + sumDigits(n / 10)); //call the method with one digit removed from the number (and add the result)
     }
 
+    //this method returns the number of blocks in a triangle where n = number of rows and n is the number of blocks per row
     public static int triangle(int n) {
-        if (n == 1 || n == 0) { //if we're on the last row (or on the 0th row somehow)
-            return n;
+        if (n == 1 || n == 0) {  
+            return n; //return 1 once we've reached the top of the triangle
         }
-        return n + triangle(n - 1); //
+        return n + triangle(n - 1); //works its way down from the top of the triangle (1) to the bottom (n)
     }
 
+    //this method converts any whole number into binary base 2
     public static String binaryConvert(int n) {
-        if (n / 2 == 0) {
-            return String.valueOf(n % 2);
+        if (n / 2 == 0) {   //if it cannot be evenly divided
+            return "" + (n % 2); //return the remainder
         }
-        return "" + binaryConvert(n / 2) + n % 2;
+        return "" + binaryConvert(n / 2) + n % 2; //the remainder can only be 1 or 0
     }
 
+    //this method converts any whole number into binary base 0 to 16
     public static String convert(int n, int b) {
-        if (n <= b) {
-            return "" + n;
+        if (n <= b) { //if the remainder is less than the base
+            return "" + n; 
         }
+        
+        //this next block of code accounts for when there is a two digit remainder
         if (n == 10) {
             return convert(n / b, b) + "A";
         } else if (n % b == 11) {
@@ -57,12 +63,15 @@ public class Exercise2 {
             return convert(n / b, b) + "E";
         } else if (n % b == 15) {
             return convert(n / b, b) + "F";
-        } else {
+        } 
+        //return binary normally if the remainder is less than 10
+        else {
             return "" + convert(n / b, b) + n % b;
         }
 
     }
 
+    //this method checks 
     public static boolean isPalindrome(String s, int length) {
         if (length == 0 || length == 1) {
             return true;
