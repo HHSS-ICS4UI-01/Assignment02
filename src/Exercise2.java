@@ -85,6 +85,5 @@ public class Exercise2 {
                 return num2;
             }
         }
-        return 0;
     }
 }
