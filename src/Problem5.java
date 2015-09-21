@@ -16,13 +16,25 @@ public class Problem5 {
      * @param args the command line arguments
      */
     
-    static boolean isPalindrome(String s, int length) 
+    static boolean isPalindrome(String s) 
     {
-        if(length == 1) {
+        if(s.length() == 0 || s.length() == 1) 
+        {
             return true;
         }
-        
+             
+        if(s.charAt(0) == s.charAt(s.length()-1)) 
+        {
+         // check for first and last char of String:
+         //if they are same then do the same thing for a substring with first and last char removed
+         //Repeat until string completes or condition fails
+         
+        return isPalindrome(s.substring(1, s.length()-1));
+        }
+        //If program reaches this return that means that it is false
         return false;
+        
+        
     }
     
     
@@ -36,8 +48,9 @@ public class Problem5 {
         
         int length = word.length();
         
-        boolean palindrome = isPalindrome(word, length);
+        boolean palindrome = isPalindrome(word);
         
+        //Differing statements depending on what is returned 
         if(palindrome) {
             System.out.println(word + " is a palindrome");
         }
