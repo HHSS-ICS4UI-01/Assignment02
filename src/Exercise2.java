@@ -34,6 +34,7 @@ public class Exercise2 {
         //problem 6 output
         int[] nums = {12,14,18,33,34};
         int max = marbles(50, nums);
+        System.out.println(max);
         
     }
     
@@ -126,53 +127,44 @@ public class Exercise2 {
     
     //problem 5
     static boolean isPalindrome(String s, int length){
-        
-        if (length == 1)
+        int n = 0;
+        //if string length is 0 or 1
+        if (length == 1 || length == 0)
         {
+            //return true to the user
             return true;
         }
-        if(length == 0)
+        //if the first letter of the string is equal to the last letter of the string
+        if(s.charAt(0) == s.charAt(length - 1))
         {
-            return false;
-        }
-        else if(s.charAt(0) != s.charAt(length - 1))
-        {
-            return false;
-        }else{
-            String check = s.substring(1, length - 2);
-            length = length - 2;
-            for(int i = 1; i < length; i++)
-            {
-                if(s.charAt(i) != s.charAt(length))
-                {
-                    length --;
-                    return false;
-                    
-                }
-                else{
-                    return true;
-                }
+            //return a substring excluding the two letters compared
+            return isPalindrome(s.substring(1, length - 1), length - 2);
             
-            }
         }
-       return true; 
+        //if the first letter and last letter are not equal
+        else{
+            //return false to the user
+            return false;
+            }    
     }
     
     //problem 6
     static int marbles(int n, int[] m){
         //set counter i to 0
-        int i = 0;
-        //set total marbles Jimmy has to 0
-        int mTotal = 0;
-        //
-        mTotal = m[i] + mTotal;
-        i++;
-        
-        if(i == m.length && mTotal <= n)
+        int i = 1;
+        //if total marbles in the bag is greater than the number the drawer can hold
+        if(m[i-1] >= n)
         {
-            return mTotal;
-        }else{
-            return mTotal; //placeholder
+            //return the total number of marbles the drawer can hold to the user
+            return n;
+        //if the drawer cannot hold any marbles    
+        }else if(n == 0)
+        {//return a zero to the user
+            return 0;
+        }else
+        {
+            i++;
         }
+        return n - m[i-1];
     }
 }
