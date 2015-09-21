@@ -57,17 +57,42 @@ public class Problem1 {
 
     }
 
+    //problem 4
     static String convert(int n, int b) {
-       int q = 0;
-       int r = 0;
-       if(n <= b)
-       {
-           return "" + n;
-       }else
-       {
-           r = n%b;
-           q = n/b;
-           return convert(n,q) + r;
-       }
+        int q = 0;
+        int r = 0;
+        String let = "";
+        if (n <= b) {
+            return "" + n;
+        } else {
+            r = n % b;
+        }
+        q = n / b;
+        if (r == 10) {
+            let = "A";
+            return convert(q, b) + let;
+        } else if (r == 11) {
+            let = "B";
+            return convert(q, b) + let;
+        } else if (r == 12) {
+            let = "C";
+            return convert(q, b) + let;
+        } else if (r == 13) {
+            let = "D";
+            return convert(q, b) + let;
+        } else if (r == 14) {
+            let = "E";
+            return convert(q, b) + let;
+        } else if (r == 15) {
+            let = "F";
+            return convert(q, b) + let + r;
+        } else {
+            return convert(q, b) + r;
+        }
     }
+    
+    
+    
+    //problem 5
+    
 }
