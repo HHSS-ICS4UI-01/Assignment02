@@ -24,7 +24,7 @@ public class Problem1 {
             
         }
     }
-
+    
     /**
      * @param args the command line arguments
      */
