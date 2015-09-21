@@ -16,8 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println(MarblesLost2(50,{12,14, 18, 33, 34});
+        System.out.println(isPalindrome("lamont", 6));
     }
 
     public static int sumDigits(int n) {
@@ -38,7 +37,7 @@ public class Exercise2 {
 
     public static String binaryConvert(int n) {
         if (n / 2 == 0) {
-            return "1";
+            return "" + n % 2;
         } else {
             if (n % 2 == 0) {
                 return binaryConvert(n / 2) + "0";
@@ -72,18 +71,6 @@ public class Exercise2 {
         }
     }
 
-    public static int marblesLost(int max, int[] bags) {
-        int bagNumber = 0;
-        int count = 0;
-        if (bags.length == 1 && bags[0] <= max && bags[0] >= count) {
-            return bags[0];
-        } else {
-            if (count <= max && bagNumber < bags.length) {
-            }
-        }
-        return 0;
-    }
-
     public static int marblesLost2(int max, int[] bags) {
         if (bags.length == 0) {
             return 0;
@@ -91,14 +78,11 @@ public class Exercise2 {
             int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
             int num1 = bags[0] + marblesLost2(max, shortened);
             int num2 = marblesLost2(max, shortened);
-            
-            if(num1 > num2 && num1 <= max){
-                if(num1+ num2 <= max){
-                    return num1+num2;
-                }
-            }
-            else{
-              return num2;
+
+            if (num1 > num2 && num1 <= max) {
+                return num1;
+            } else {
+                return num2;
             }
         }
         return 0;
