@@ -39,11 +39,28 @@ public class Exercise2 {
         }
     }
     
+    static int binaryConvert(int n)
+    {
+       return 1;
+    }
+    
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a number for it's sum of digits:");
+        //Problem 1
+        //System.out.println("Enter in a number to receive it's sum of digits:");
+        //int num = input.nextInt();
+        //System.out.println("The sum of " + num + " is " + sumDigits(num));
         
-        int num= input.nextInt();
-        System.out.println(sumDigits(num));
+        //Problem 2
+        //System.out.println("Enter in the amount of rows:");
+        //int num = input.nextInt();
+        //System.out.println("The amount of blocks in a triangle with " + num + 
+                //" rows is " + triangle(num));
+        
+        //Problem 3
+        System.out.println("Enter in a number to convert to binary");
+        int num = input.nextInt();
+        System.out.println();
+        
     }
 }
