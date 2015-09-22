@@ -151,9 +151,9 @@ public class Exercise2 {
     //problem 6
     static int marbles(int n, int[] m){
         //set counter i to 0
-        int i = 1;
+        int i = 0;
         //if total marbles in the bag is greater than the number the drawer can hold
-        if(m[i-1] >= n)
+        if(m[i] >= n)
         {
             //return the total number of marbles the drawer can hold to the user
             return n;
@@ -165,6 +165,7 @@ public class Exercise2 {
         {
             i++;
         }
-        return n - m[i-1];
+        return n - m[i];
+        
     }
 }
