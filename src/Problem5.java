@@ -41,23 +41,35 @@ public class Problem5 {
     
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.println("Type 'exit' to quit");
         
-        System.out.print("Enter a word: ");
+        String word = "";
         
-        String word = input.nextLine();
+        while(!word.equals("exit")) {
+            System.out.print("Enter a word: ");
+            word = input.nextLine();
+            
+            if(word.equals("exit")) {
+                System.exit(0);
+            }
         
-        int length = word.length();
+            boolean palindrome = isPalindrome(word);
         
-        boolean palindrome = isPalindrome(word);
-        
-        //Differing statements depending on what is returned 
-        if(palindrome) {
+            //Differing statements depending on what is returned 
+            if(palindrome) 
+            {
             System.out.println(word + " is a palindrome");
+            
+            }
+        
+            if(!palindrome) 
+            {
+            System.out.println(word + " is not a palindrome");
+            
+            }
+        
         }
         
-        if(!palindrome) {
-            System.out.println(word + " is not a palindrome");
-        }
         
         
     }
