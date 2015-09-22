@@ -21,7 +21,7 @@ public class A2Q3 {
         // TODO code application logic here
         City kw = new City();
         Robot karel = new Robot(kw,5,5, Direction.EAST);
-        
+        // This automatically sets Karel to face NORTH
         while(karel.getDirection() !=Direction.NORTH) {
             karel.turnLeft();
             
@@ -38,6 +38,7 @@ public class A2Q3 {
             
             
         }
+        // This makes Karel move until he hits the 0 mark
             while(karel.getAvenue() != 0){
                 karel.move();
             }

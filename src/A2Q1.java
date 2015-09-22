@@ -36,6 +36,7 @@ public class A2Q1 {
         karel.move();
         
         while(true){
+            //Karel keeps picking up until his backpack reaches 7
             if (karel.countThingsInBackpack()< 7){
         
             karel.pickThing();

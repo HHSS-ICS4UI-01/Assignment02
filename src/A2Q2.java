@@ -39,7 +39,7 @@ public class A2Q2 {
         new Thing(kw,1,9);
        
         while(true){
-            
+            // Karel JUMPS!
         if(!karel.frontIsClear()){
             karel.turnLeft();
             
@@ -48,11 +48,13 @@ public class A2Q2 {
         }else{
             karel.move();
             
+            // If clear, turn right
             if(karel.frontIsClear()){
                 karel.turnLeft();
                 karel.turnLeft();
                 karel.turnLeft();
             }
+            //Karel stops here as he picks it up
             if(karel.getAvenue()==9){
                 
                 if(karel.getStreet()==1);
