@@ -12,20 +12,24 @@ import java.util.Scanner;
  */
 public class Problem3 {
     
-static long binaryConvert(int n) //or static int fib(int n), static short fib(int n), static int byte(int n)
+static String binaryConvert(int n) //or static int fib(int n), static short fib(int n), static int byte(int n)
     {
         if(n==1)
         {
-            return 1;
+            return "1";
         }
         if(n==0)
         {
-            return 0;
+            return "0";
         }
         else
         {
-            int remander = n;
-            return binaryConvert(n/2) + remander;
+            if(n%2==0)
+            {
+                return (binaryConvert(n/2) + "0");
+            }else
+                
+                return (binaryConvert(n/2) + "1");
         }
     }
     /**
