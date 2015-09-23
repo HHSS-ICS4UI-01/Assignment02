@@ -22,7 +22,7 @@ public class Problem6 {
         {
             return 0;
         } else {
-            return 1;
+            return marbles(n - 5, array);
         }
         
     }
@@ -43,12 +43,13 @@ public class Problem6 {
         
         for(int i = 0; i < array.length; i ++) 
         {
-            System.out.print("How many marbles are in bag " + i + "?");
+            System.out.print("How many marbles are in bag " + i + "? ");
             
             array[i] = input.nextInt();
         }
         
-        System.out.println("You can fit a maximum of " + marbles(max, array) + " marbles");
+        
+        System.out.println(marbles(max, array));
         
     }
 }
