@@ -16,11 +16,10 @@ public class Problem1 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int n = input.nextInt();
-        System.out.println("Enter a base between 2-16");
-        int b = input.nextInt();
-        System.out.println(convert(n, b));
+        System.out.println("Enter a word");
+        String s = input.nextLine();
+        int length = 0;
+        System.out.println(isPalindrome(s, length));
     }
 
     //problem 1
@@ -94,5 +93,20 @@ public class Problem1 {
     
     
     //problem 5
-    
+    static boolean isPalindrome(String s, int length) {
+        boolean palin = false;
+        int x = 0;
+        if(s.charAt(x) != s.charAt(length))
+        { 
+            palin = false;
+            return "";
+        }else 
+        {
+            x++;
+            length--;
+            palin = true;
+            return isPalindrome(s,x);
+        }
+        return palin;
+    }
 }
