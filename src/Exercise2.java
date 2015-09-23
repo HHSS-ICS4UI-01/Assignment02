@@ -22,8 +22,9 @@ public class Exercise2 {
         System.out.println(triAns);
         
         //problem 3 output
-        int convertAns = binaryConvert(32);
-        System.out.println(convertAns);
+        //String binAns = new StringBuffer(binaryConvert(32)).reverse().toString();
+        int binAns = binaryConvert(64);
+        System.out.println(binAns);
         
         //problem 4 output
         
@@ -34,7 +35,7 @@ public class Exercise2 {
         //problem 6 output
         int[] nums = {12,14,18,33,34};
         int max = marbles(50, nums);
-        System.out.println(max);
+        //System.out.println(max);
         
     }
     
@@ -73,19 +74,16 @@ public class Exercise2 {
     
     //problem 3
     static int binaryConvert(int n){  
-        String nums;
-        String result = ("");
-        String reverse;
-        
-        nums = String.valueOf(n % 2);
-            result = result + nums;
-            System.out.print(result);
+        String nums = String.valueOf(n % 2);
             
+        
+
         //if number is equal to 1
         if(n == 1)
         {
             //return a 1 to the user
             return 1;
+            
         //else if number is equal to 0
         }else if(n == 0)
         {
@@ -94,7 +92,7 @@ public class Exercise2 {
         //if number is greater than 1
         }else
         {      
-            
+            System.out.print(nums);
             //return the quotient of the number divided by 2
             return binaryConvert(n / 2);
         }
@@ -127,7 +125,6 @@ public class Exercise2 {
     
     //problem 5
     static boolean isPalindrome(String s, int length){
-        int n = 0;
         //if string length is 0 or 1
         if (length == 1 || length == 0)
         {
@@ -152,8 +149,11 @@ public class Exercise2 {
     static int marbles(int n, int[] m){
         //set counter i to 0
         int i = 0;
+        
+        int mTotal = 0;
+        
         //if total marbles in the bag is greater than the number the drawer can hold
-        if(m[i] >= n)
+        if(m[i] + mTotal >= n)
         {
             //return the total number of marbles the drawer can hold to the user
             return n;
