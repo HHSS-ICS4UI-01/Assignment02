@@ -25,20 +25,11 @@ public class Problem4 {
         {
             if(n%b==0)
             {
-                return (convert(n/b) + "0");
-            }else if(n%b==1)
-            {
-                return (convert(n/b) + "1");
-            }else if(n%b==2)
-            {
-                return (convert(n/b) + "2");
-            }else if(n%b==3)
-            {
-                return (convert(n/b) + "3");
-            }else if(n%b==4)
-            {
-                return (convert(n/b) + "4");
-            }
+                return (convert(n/b, b) + "0");
+            }else
+            
+                return (convert(n/b, b) + "1");
+            
         }
     }
 
@@ -48,13 +39,13 @@ public class Problem4 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
-        System.out.print("Please enter a non negative whole number");
+        System.out.print("Please enter a non negative whole number to convert: ");
         int n = input.nextInt();
         
-        System.out.print("Please enter a non negative whole number");
+        System.out.print("Please enter a non negative whole number to covert the base: ");
         int b = input.nextInt();
         
-        if(n < 1 || b < 1 || b > 16)
+        if(n < 1 || b < 2 || b > 16)
         {
             System.out.println("Please follow directions!!!");
         }else
