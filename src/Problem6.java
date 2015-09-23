@@ -35,22 +35,40 @@ public class Problem6 {
         //take away the bag and move on to the next
         //see if the # marbles excedes the amount the box can hold
         Scanner in = new Scanner(System.in);
+        System.out.println("Enter the max number of marbles the box can hold");
+        int b = in.nextInt();
         System.out.println("enter number of bags");
         int d = in.nextInt();
         int[] e = new int[d];
         for(int i = 0; i < e.length; i++){
-            System.out.println("enter number of marbles");
+            System.out.println("enter number of marbles in each bag");
             e[i] = in.nextInt();
-            if (e[i] == 2){
-                
-            }
         }
-        marbles(50,e);
+        int ans = marbles(b,e);
+        System.out.println("the max amount of marbles " + ans);
         
     }
-    static int marbles(int maxMar, int[i] numMarInBags){
+    static int marbles(int maxMar, int[] numMarInBags){
+        int c = 0;
+        if ( maxMar == 0){
+            return 0;
+        }
         
-        return marbles(maxMar - numMarIn, k - 1) + numPlanets(n - 1, k)
+        int numMarbles = numMarInBags[0];
+        int [] leftover = new int[numMarInBags.length-1];
+        for(int i = 1; i < numMarInBags.length; i++){
+            leftover[i-1] = numMarInBags[i];
+        }
+        
+        int with = marbles(maxMar - numMarbles, leftover ) + numMarbles;
+        int without = marbles(maxMar, leftover );
+        
+        if (with > without){
+            return with;
+        }else if ( with < without){
+            return without;
+        }
+        return -1;
     }
-    }
+    
 }
