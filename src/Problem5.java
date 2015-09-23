@@ -28,7 +28,7 @@ public class Problem5 {
          // check for first and last char of String:
          //if they are same then do the same thing for a substring with first and last char removed
          //Repeat until string completes or condition fails
-         
+        
         return isPalindrome(s.substring(1, s.length()-1));
         }
         //If program reaches this return that means that it is false
