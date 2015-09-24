@@ -72,9 +72,9 @@ public class Exercise2 {
         //" rows is " + triangle(num));
         
         //Problem 3
-        System.out.println("Enter in a number to convert to binary");
-        int num = input.nextInt();
-        System.out.println(num + " in binary is " + binaryConvert(num));
+        //System.out.println("Enter in a number to convert to binary");
+        //int num = input.nextInt();
+        //System.out.println(num + " in binary is " + binaryConvert(num));
         
     }
 }
