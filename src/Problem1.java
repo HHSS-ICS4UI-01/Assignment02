@@ -17,11 +17,15 @@ public class Problem1 {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int n = input.nextInt();
-        System.out.println("Enter a base between 2-16");
-        int b = input.nextInt();
-        System.out.println(convert(n, b));
+//        System.out.println("Enter a number");
+//        int n = input.nextInt();
+        System.out.println("Enter a word");
+        String word = input.nextLine();
+        int a = word.length();
+        
+//        System.out.println("Enter a base between 2-16");
+//        int b = input.nextInt();
+        System.out.println(palindrome(word, a));
 
 
     }
@@ -88,7 +92,20 @@ public class Problem1 {
            
        }
     
-    
+        static boolean palindrome(String s,int length){
+            boolean palin = false;
+            
+            if (length <= 1) {
+                
+               palin = false;
+            }
+            return palin;
+            
+            
+            
+            
+                   
+        }
     
     
    
