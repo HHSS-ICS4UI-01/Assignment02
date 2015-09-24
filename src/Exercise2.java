@@ -74,10 +74,9 @@ public class Exercise2 {
     
     //problem 3
     static int binaryConvert(int n){  
-        String nums = String.valueOf(n % 2);
-            
-        
 
+        String binNum = String.valueOf(n % 2); 
+        String nums = "";
         //if number is equal to 1
         if(n == 1)
         {
@@ -92,13 +91,10 @@ public class Exercise2 {
         //if number is greater than 1
         }else
         {      
-            System.out.print(nums);
             //return the quotient of the number divided by 2
-            return binaryConvert(n / 2);
-        }
-        
-        
-        
+            return binaryConvert(n / 2);    
+        }     
+            
             
     }
     
