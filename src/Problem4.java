@@ -26,10 +26,11 @@ public class Problem4 {
             return alphabet(n);
         }
         
+        //putting in the numbers + placing the letters in the right spot
         return convert(n/b,b) + alphabet(n%b);
     }
     
-    
+    //putting in the letters
     static String alphabet(int n){
         if (n == 10){
             return "A";
@@ -44,6 +45,7 @@ public class Problem4 {
         }else if(n == 15){
             return "F";
         }else {
+            //put in the numbers that are smaller than the divisor
             return "" + n;
         }
     }

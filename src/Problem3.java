@@ -18,12 +18,15 @@ public class Problem3 {
         
     }
     static String binaryConvert(int n){
+        //if 1 = 1 than I put a one in
         if (n == 1){
             return "1";
         }
+        //if 0 = 0 I put a zero in
         if (n == 0){
             return "0";
         }
+        //getting those ones and zeroes
         return binaryConvert(n/2) + n%2;
     }
 }

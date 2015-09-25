@@ -15,12 +15,13 @@ public class Problem5 {
     public static void main(String[] args) {
         // TODO code application logic here
         isPalindrome("racecar",7);
-        
     }
      static boolean isPalindrome(String s, int length){
+         //if the word is one long it atoumaticaly even
          if (length == 1 || length == 0){
              return true;
          }else{
+             //chopping off the first and last letter and comparing them
              boolean word = s.charAt(0) == s.charAt(length - 1);
              String leftover = s.substring(1,length - 1);
              return word && isPalindrome(leftover,length - 2);

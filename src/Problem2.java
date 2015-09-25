@@ -24,12 +24,15 @@ public class Problem2 {
         System.out.println("There will be " + numOfBalls);
     }
     static int triangle(int n){
+        //if 0 = 0, the answer is 0
         if (n == 0){
             return 0;
         }
+        //if 1=1, the answer is 1
         if (n == 1){
             return 1;
         }else{
+            //
             return triangle(n-1) + n;
         }
     }

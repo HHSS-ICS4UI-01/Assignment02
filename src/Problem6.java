@@ -17,19 +17,6 @@ public class Problem6 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        public static int numPlanets(int n, int k)
-//{
-//     if(k == 0 || n == k)
-//     {
-//          return 1;
-//     }else if(k > n)
-//     {
-//          return 0;
-//     }
-//     return numPlanets(n - 1, k - 1) + numPlanets(n - 1, k)
-//}
-        
-        
         //bag a, bag b, etc
         //take the amount of marbles in the bag away from the amount box can hold
         //take away the bag and move on to the next
@@ -49,26 +36,35 @@ public class Problem6 {
         
     }
     static int marbles(int maxMar, int[] numMarInBags){
-        int c = 0;
-        if ( maxMar == 0){
+        //if i don't have any space left, and or if i have nothing left to put in
+        if ( maxMar == 0 || numMarInBags.length == 0){
             return 0;
         }
         
+        //taking the value of the first interger in the array
         int numMarbles = numMarInBags[0];
+        
+        //taiking the leftover array and putting it into a new array
         int [] leftover = new int[numMarInBags.length-1];
         for(int i = 1; i < numMarInBags.length; i++){
             leftover[i-1] = numMarInBags[i];
         }
-        
+        //finding the combination to get the most marbles possible
+        //with the first bag
         int with = marbles(maxMar - numMarbles, leftover ) + numMarbles;
+        //without the first bag
         int without = marbles(maxMar, leftover );
         
-        if (with > without){
-            return with;
-        }else if ( with < without){
+        //checking which of the two integers are bigger, while not exceeding the maximum amount of marbles
+        if (with > without && with <= maxMar){
+            return  with;
+        }else if ( with < without && without <= maxMar){
             return without;
+        
+        //if there is no possible combination within the paramters
+        }else{
+            return 0;
         }
-        return -1;
     }
     
 }
