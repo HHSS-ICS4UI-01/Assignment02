@@ -95,18 +95,18 @@ public class Problem1 {
     //problem 5
     static boolean isPalindrome(String s, int length) {
         boolean palin = false;
+     
         int x = 0;
-        if(s.charAt(x) != s.charAt(length))
+        s = s.substring(x, length);
+        if(length <= 1)
         { 
-            palin = false;
-            return "";
+            return false;
         }else 
         {
             x++;
             length--;
-            palin = true;
-            return isPalindrome(s,x);
+            return true;
         }
-        return palin;
+       
     }
 }
