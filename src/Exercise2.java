@@ -60,56 +60,81 @@ public class Exercise2 {
     
     static String convert(int n, int b)
     {
-        if(n == 0)
+        if(n<b)
         {
-            return "0";
-        }if(n == 1)
-        {
-            return "1";
-        }if(n == 2)
-        {
-            return "2";
-        }if(n == 3)
-        {
-            return "3";
-        }if(n == 4)
-        {
-            return "4";
-        }if(n == 5)
-        {
-            return "5";
-        }if(n == 6)
-        {
-            return "6";
-        }if(n == 7)
-        {
-            return "7";
-        }if(n == 8)
-        {
-            return "8";
-        }if(n == 9)
-        {
-            return "9";
-        }if(n == 10)
-        {
-            return "A";
-        }if(n == 11)
-        {
-            return "B";
-        }if(n == 12)
-        {
-            return "C";
-        }if(n == 13)
-        {
-            return "D";
-        }if(n == 14)
-        {
-            return "E";
-        }if(n == 15)
-        {
-            return "F";
+            if(n<10)
+            {
+                return "" + n;
+            }else if(n == 10)
+            {
+                return "A";
+            }else if(n == 11)
+            {
+                return "B";
+            }else if(n == 12)
+            {
+                return "C";
+            }else if(n == 13)
+            {
+                return "D";
+            }else if(n == 14)
+            {
+                return "E";
+            }else 
+            {
+                return "F";
+            }
         }
         
+        if(n % b == 0)
+        {
+            return convert(n / b, b) + "0";
+        }if(n % b == 1)
+        {
+            return convert(n / b, b) + "1";
+        }if(n % b == 2)
+        {
+            return convert(n / b, b) + "2";
+        }if(n % b == 3)
+        {
+            return convert(n / b, b) + "3";
+        }if(n % b == 4)
+        {
+            return convert(n / b, b) + "4";
+        }if(n % b == 5)
+        {
+            return convert(n / b, b) + "5";
+        }if(n % b == 6)
+        {
+            return convert(n / b, b) + "6";
+        }if(n % b == 7)
+        {
+            return convert(n / b, b) + "7";
+        }if(n % b == 8)
+        {
+            return convert(n / b, b) + "8";
+        }if(n % b == 9)
+        {
+            return convert(n / b, b) + "9";
+        }if(n % b == 10)
+        {
+            return convert(n / b, b) + "A";
+        }if(n % b == 11)
+        {
+            return convert(n / b, b) + "B";
+        }if(n % b == 12)
+        {
+            return convert(n / b, b) + "C";
+        }if(n % b == 13)
+        {
+            return convert(n / b, b) + "D";
+        }if(n % b == 14)
+        {
+            return convert(n / b, b) + "E";
+        }else
+        {
+            return convert(n / b, b) + "F";
+        }
     }
     
     
@@ -130,6 +155,13 @@ public class Exercise2 {
         //System.out.println("Enter in a number to convert to binary");
         //int num = input.nextInt();
         //System.out.println(num + " in binary is " + binaryConvert(num));
+        
+        //Problem 4
+        //System.out.println("Enter in a number to convert");
+        //int num = input.nextInt();
+        //System.out.println("Enter a number for the base you want the number converted in");
+        //int base = input.nextInt();
+        //System.out.println(num + " in base " + base + " is " + convert(num,base));
         
     }
 }
