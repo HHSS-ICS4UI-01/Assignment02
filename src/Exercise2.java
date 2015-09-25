@@ -15,6 +15,7 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
+    //Problem 1
     static int sumDigits(int n)
     {   //if the number is 1 digit long
         if(n >= 0 && n <=9)
@@ -27,7 +28,7 @@ public class Exercise2 {
             return r + sumDigits(q); //loop 
         }
     }
-    
+    //Problem 2
     static int triangle(int n)
     {
         if(n == 1 || n == 0)
@@ -38,7 +39,7 @@ public class Exercise2 {
             return n + triangle(n - 1);
         }
     }
-    
+    //Problem 3
     static String binaryConvert(int n)
     {
        if(n == 0)
@@ -57,7 +58,7 @@ public class Exercise2 {
            return (binaryConvert(n/2) + "1");
        }
     }
-    
+    //Problem 4
     static String convert(int n, int b)
     {
         if(n<b)
@@ -85,7 +86,6 @@ public class Exercise2 {
                 return "F";
             }
         }
-        
         if(n % b < 10)
         {
             return convert(n / b, b) + n%b;
@@ -109,8 +109,23 @@ public class Exercise2 {
             return convert(n / b, b) + "F";
         }
     }
+    //Problem 5
+    static boolean isPalindrome(String s, int length)
+    {
+        length = s.length();
+        if(s.length() == 0)
+        {
+            return true;
+        }
+        if(s.length() == 1)
+        {
+            return true;
+        }
+        
+    }
     
     
+    //Main Method For Testing
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         //Problem 1
@@ -135,6 +150,8 @@ public class Exercise2 {
         //System.out.println("Enter a number for the base you want the number converted in");
         //int base = input.nextInt();
         //System.out.println(num + " in base " + base + " is " + convert(num,base));
+        
+        //Problem 5
         
     }
 }
