@@ -31,7 +31,13 @@ public class Problem6 {
         {
             return 0;
         } else {
-            
+            int biggest = 0;
+            for(int i = 0; i < array.length; i ++) 
+            {
+                if(array[i] > biggest) {
+                    array[i] = biggest;
+                }
+            }
             return marbles(n, array);
         }
         
