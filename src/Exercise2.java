@@ -22,11 +22,12 @@ public class Exercise2 {
         System.out.println(triAns);
         
         //problem 3 output
-        //String binAns = new StringBuffer(binaryConvert(32)).reverse().toString();
-        int binAns = binaryConvert(64);
-        System.out.println(binAns);
+        String binNum = binaryConvert(64);
+        System.out.println(binNum);
         
         //problem 4 output
+        String baseNum = convert(1000, 2);
+        System.out.println(baseNum);
         
         //problem 5 output
         boolean palindrome = isPalindrome("racecar", 7);
@@ -73,50 +74,66 @@ public class Exercise2 {
     }
     
     //problem 3
-    static int binaryConvert(int n){  
-
-        String binNum = String.valueOf(n % 2); 
-        String nums = "";
+    static String binaryConvert(int n){ 
+        
         //if number is equal to 1
         if(n == 1)
         {
             //return a 1 to the user
-            return 1;
+            return "1";
             
         //else if number is equal to 0
         }else if(n == 0)
         {
             //return a 0 to the user
-            return 0;
+            return "0";
         //if number is greater than 1
         }else
         {      
             //return the quotient of the number divided by 2
-            return binaryConvert(n / 2);    
+            return binaryConvert(n / 2) + n%2;    
         }     
             
             
     }
     
     //problem 4
-    static int convert(int n, int b){
+    static String convert(int n, int b){
         
         String num;
         
-        if (n <= 1)
+        if (n < 10 || n == 16)
         {
-            return n;
+            return String.valueOf(n);
         }
         
-        if(n % b >= 10)
-        {
-            if (n == 10)
+        else if (n%b > 9){
+            if(n%b == 10)
             {
-                
+                return "A";
+            }
+            if(n%b == 11)
+            {
+                return "B";
+            }
+            if(n%b == 12)
+            {
+                return "C";
+            }
+            if(n%b == 13)
+            {
+                return "D";
+            }
+            if(n%b == 14)
+            {
+                return "E";
+            }
+            if(n%b == 15)
+            {
+                return "F";
             }
         }
-        
-        return n / b;
+            return convert(n / b, b) + n%b;
     }
     
     //problem 5
@@ -148,20 +165,23 @@ public class Exercise2 {
         
         int mTotal = 0;
         
-        //if total marbles in the bag is greater than the number the drawer can hold
-        if(m[i] + mTotal >= n)
+        
+        
+        //if total marbles in the two bags is greater than the number the drawer can hold
+        if(m[i] + m[i+1] >= n)
         {
             //return the total number of marbles the drawer can hold to the user
             return n;
         //if the drawer cannot hold any marbles    
-        }else if(n == 0)
+        }else//(m[i] + m[i+1] < n)
         {//return a zero to the user
-            return 0;
-        }else
-        {
             i++;
+            return m[i] + m[i+1];
         }
-        return n - m[i];
-        
+            
+//        }else
+//        {
+//            return i++;
+//        }   
     }
 }
