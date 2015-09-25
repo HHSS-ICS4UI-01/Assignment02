@@ -32,7 +32,7 @@ public class Problem6 {
             return 0;
         } else {
             
-            return marbles(n - 5, array);
+            return marbles(n, array);
         }
         
     }
