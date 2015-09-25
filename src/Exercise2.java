@@ -86,36 +86,9 @@ public class Exercise2 {
             }
         }
         
-        if(n % b == 0)
+        if(n % b < 10)
         {
-            return convert(n / b, b) + "0";
-        }if(n % b == 1)
-        {
-            return convert(n / b, b) + "1";
-        }if(n % b == 2)
-        {
-            return convert(n / b, b) + "2";
-        }if(n % b == 3)
-        {
-            return convert(n / b, b) + "3";
-        }if(n % b == 4)
-        {
-            return convert(n / b, b) + "4";
-        }if(n % b == 5)
-        {
-            return convert(n / b, b) + "5";
-        }if(n % b == 6)
-        {
-            return convert(n / b, b) + "6";
-        }if(n % b == 7)
-        {
-            return convert(n / b, b) + "7";
-        }if(n % b == 8)
-        {
-            return convert(n / b, b) + "8";
-        }if(n % b == 9)
-        {
-            return convert(n / b, b) + "9";
+            return convert(n / b, b) + n%b;
         }if(n % b == 10)
         {
             return convert(n / b, b) + "A";
