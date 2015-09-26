@@ -32,7 +32,7 @@ public class Problem2 {
         if (n == 1){
             return 1;
         }else{
-            //
+            //finding the amount in the level before
             return triangle(n-1) + n;
         }
     }

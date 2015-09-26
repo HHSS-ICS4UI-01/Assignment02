@@ -26,6 +26,7 @@ public class Problem1 {
         System.out.println("The answer is " + ans + ".");
     }
     static int sumOfDigits(int n){
+        //
         if(n >= 0 & n<10){
             return n;
         }
