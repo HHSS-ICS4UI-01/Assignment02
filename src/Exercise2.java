@@ -26,7 +26,7 @@ public class Exercise2 {
         System.out.println(binNum);
         
         //problem 4 output
-        String baseNum = convert(1000, 2);
+        String baseNum = convert(1000, 16);
         System.out.println(baseNum);
         
         //problem 5 output
@@ -100,40 +100,51 @@ public class Exercise2 {
     //problem 4
     static String convert(int n, int b){
         
-        String num;
-        
-        if (n < 10 || n == 16)
+        //if number is less than or equal to 1
+        if (n <= 1)
         {
+            //return the number as a string
             return String.valueOf(n);
         }
         
-        else if (n%b > 9){
+        //if number is greater than 9
+        else if (n % b > 9){
+            //convert to hexadecimal
+            
+            //convert 10 to A
             if(n%b == 10)
             {
-                return "A";
+                return convert(n / b, b) + "A";
             }
+            //convert 11 to B
             if(n%b == 11)
             {
-                return "B";
+                return convert(n / b, b) + "B";
             }
+            //convert 12 to C
             if(n%b == 12)
             {
-                return "C";
+                return convert(n / b, b) + "C";
             }
+            //convert 13 to D
             if(n%b == 13)
             {
-                return "D";
+                return convert(n / b, b) + "D";
             }
+            //convert 14 to E
             if(n%b == 14)
             {
-                return "E";
+                return convert(n / b, b) + "E";
             }
+            //convert 15 to F
             if(n%b == 15)
             {
-                return "F";
-            }
+                return convert(n / b, b) + "F";
+            }     
+        
         }
-            return convert(n / b, b) + n%b;
+        //return the quotient of n / b and the remainder of n / b as a string
+        return convert(n / b, b) + n%b;
     }
     
     //problem 5
