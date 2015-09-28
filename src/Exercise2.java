@@ -100,15 +100,19 @@ public class Exercise2 {
     //problem 4
     static String convert(int n, int b){
         
-        //if number is less than or equal to 1
-        if (n <= 1)
+        //if number is less than the base case and less than 10
+        if (n < b && n < 10)
         {
             //return the number as a string
             return String.valueOf(n);
+//        }else if(b > 2 && n < 10)
+//        {
+//            return String.valueOf(n);
+//        }
         }
         
-        //if number is greater than 9
-        else if (n % b > 9){
+        //if quotient of number is greater than 9
+            else if(n % b > 9){
             //convert to hexadecimal
             
             //convert 10 to A
