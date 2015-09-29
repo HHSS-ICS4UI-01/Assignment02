@@ -121,7 +121,14 @@ public class Exercise2 {
         {
             return true;
         }
-        
+        if(s.charAt(0) == s.charAt(length - 1))
+        {
+            String temp = s.substring(1, length - 1);
+            return isPalindrome(temp, temp.length());
+        }else
+        {
+            return false;
+        }
     }
     
     
@@ -152,6 +159,8 @@ public class Exercise2 {
         //System.out.println(num + " in base " + base + " is " + convert(num,base));
         
         //Problem 5
-        
+        //System.out.println("Please enter in a word to check if a palindrome");
+        //String word = input.nextLine();
+        //System.out.println("Is " + word + " a palindrome? " + isPalindrome(word, word.length()));
     }
 }
