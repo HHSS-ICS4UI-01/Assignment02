@@ -14,10 +14,8 @@ public class Exercise2 {
     /**
      * @param args the command line arguments
      */
-    static int[] test = {12, 22, 18, 67, 23, 50};
-
     public static void main(String[] args) {
-        System.out.println(jimmyMarbles(100, test));
+      
     }
 
     //this method returns the sum of the digits of a given number
@@ -30,7 +28,7 @@ public class Exercise2 {
 
     //this method returns the number of blocks in a triangle where n = number of rows and n is the number of blocks per row
     public static int triangle(int n) {
-        if (n == 1 || n == 0) {  
+        if (n == 1 || n == 0) {
             return n; //return 1 once we've reached the top of the triangle
         }
         return n + triangle(n - 1); //works its way down from the top of the triangle (1) to the bottom (n)
@@ -46,12 +44,12 @@ public class Exercise2 {
 
     //this method converts any whole number into binary base 0 to 16
     public static String convert(int n, int b) {
-        if (n <= b) { //if the remainder is less than the base
-            return "" + n; 
+        if (n < b) { //if the remainder is less than the base
+            return "" + n % b;
         }
-        
+
         //this next block of code accounts for when there is a two digit remainder
-        if (n == 10) {
+        if (n % b == 10) {
             return convert(n / b, b) + "A";
         } else if (n % b == 11) {
             return convert(n / b, b) + "B";
@@ -63,136 +61,38 @@ public class Exercise2 {
             return convert(n / b, b) + "E";
         } else if (n % b == 15) {
             return convert(n / b, b) + "F";
-        } 
-        //return binary normally if the remainder is less than 10
+        } //return binary normally if the remainder is less than 10
         else {
             return "" + convert(n / b, b) + n % b;
         }
 
     }
 
-    //this method checks 
+    //this method checks if a word read forwards is the same read backwards
     public static boolean isPalindrome(String s, int length) {
         if (length == 0 || length == 1) {
+            return true;   //if every case has passed the test, it must be a palindrome
+        }
+        if (s.charAt(0) == s.charAt(s.length() - 1) && isPalindrome(s.substring(1, length - 1), length - 2)) { //check if the first letter is the same as the last
+            //check with the first and last letters removed
             return true;
         }
-        if (s.charAt(0) == s.charAt(s.length() - 1)) {
-            if (isPalindrome(s.substring(1, length - 1), length - 2)) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        return false; //if none of the test cases pass, it is not a palindrome.
     }
 
+    //addresses Jimmy's Lost His Marbles problem
     public static int jimmyMarbles(int max, int[] marbleBags) {
         if (marbleBags.length == 0) {
             return 0;
         }
-        int[] firstShort = Arrays.copyOfRange(marbleBags, 1, marbleBags.length);
-        int firstOption = jimmyMarbles(max - marbleBags[0], firstShort) + marbleBags[0];
-        int secondOption = jimmyMarbles(max, firstShort);
+        int[] firstShort = Arrays.copyOfRange(marbleBags, 1, marbleBags.length); //creating an array with the first number missing
+        int firstOption = jimmyMarbles(max - marbleBags[0], firstShort) + marbleBags[0]; //first case: including the first number
+        int secondOption = jimmyMarbles(max, firstShort); //second case: not including the first number
 
-        if (firstOption > secondOption && firstOption <= max) {
+        //take the best choice out of the two cases
+        if (firstOption > secondOption && firstOption <= max) { 
             return firstOption;
         }
         return secondOption;
-    }
-
-    public static int jimmyMarblesImSoSorryThisExists(int max, int[] marbleBags) {
-        if (marbleBags.length == 0) {
-            return 0;
-        }
-        int[] firstShort = Arrays.copyOfRange(marbleBags, 1, marbleBags.length);
-        int[] lastShort = Arrays.copyOfRange(marbleBags, 0, marbleBags.length - 1);
-        int firstOption = marbleBags[marbleBags.length - 1] + jimmyMarbles(max, lastShort);
-        int secondOption = jimmyMarbles(max, lastShort);
-        int thirdOption = marbleBags[0] + jimmyMarbles(max, firstShort);
-        int fourthOption = jimmyMarbles(max, firstShort);
-
-        int answer = 0;
-        if (firstOption > secondOption && firstOption <= max) {
-            answer = firstOption;
-        } else if (secondOption <= max) {
-            answer = secondOption;
-        }
-        if (thirdOption > fourthOption && thirdOption <= max && thirdOption > answer) {
-            answer = thirdOption;
-        } else if (fourthOption <= max && fourthOption > answer) {
-            answer = fourthOption;
-        }
-        return answer;
-    }
-
-    public static int jimmyMarblesTerrible(int max, int[] marbleBags) {
-        if (marbleBags.length == 0) {
-            return 0;
-        }
-        int[] lastShort = Arrays.copyOfRange(marbleBags, 0, marbleBags.length - 1);
-        int firstOption = marbleBags[marbleBags.length - 1] + jimmyMarbles(max, lastShort);
-        int secondOption = jimmyMarbles(max, lastShort);
-
-        int answer = 0;
-        if (firstOption > secondOption && firstOption <= max) {
-            answer = firstOption;
-        }
-        answer = secondOption;
-        return answer;
-    }
-
-    public static int jimmyMarblesAwful(int max, int[] marbleBags) {
-        int sum = 0;
-        for (Integer i : marbleBags) {
-            sum += i;
-        }
-        if (max == 0) {
-            return 0;
-        } else if (sum <= max) {
-            return sum;
-        }
-        return 0;
-    }
-
-    public static int jimmyMarblesLessBad(int max, int[] marbleBags) {
-        int test = 0;
-        if (max <= 0 || marbleBags.length == 0) {
-            return 0;
-        } else if (max > marbleBags[0] && marbleBags.length != 1) {
-            test = jimmyMarbles(max - marbleBags[0], Arrays.copyOfRange(marbleBags, 1, marbleBags.length));
-            System.out.println(test);
-        }
-        //return 1;
-        return jimmyMarbles(test, marbleBags);
-    }
-
-    public static int jimmyMarblesBad(int max, int[] marbleBags) {
-        int z = 0;
-        if (marbleBags.length <= 1) {
-            return marbleBags[0];
-        }
-        for (int x = 0; x < marbleBags.length; x++) {
-            for (int y = 0; y < marbleBags.length; y++) {
-                if (marbleBags[x] <= max && marbleBags[y] <= max) {
-                    if (marbleBags[x] + marbleBags[y] <= max) {
-                        if (marbleBags[x] + marbleBags[y] > z) {
-                            z = marbleBags[x] + marbleBags[y];
-                        }
-                    }
-                }
-            }
-        }
-        return z;
-    }
-
-    //5 planets, can only visit 3
-    public static int numPlanets(int n, int k) {
-        if (k == 0 || n == k) {
-            return 1;
-        } else if (k > n) {
-            return 0;
-        }
-        return numPlanets(n - 1, k - 1) + numPlanets(n - 1, k);
     }
 }
