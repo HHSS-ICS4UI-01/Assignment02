@@ -19,7 +19,7 @@ public class Problem1 {
         System.out.println("Enter a word");
         String s = input.nextLine();
         int length = 0;
-        System.out.println(isPalindrome(s, length));
+        System.out.println(isPalindrome(s));
     }
 
     //problem 1
@@ -93,20 +93,43 @@ public class Problem1 {
     
     
     //problem 5
-    static boolean isPalindrome(String s, int length) {
-        boolean palin = false;
-     
-        int x = 0;
-        s = s.substring(x, length);
-        if(length <= 1)
-        { 
-            return false;
-        }else 
-        {
-            x++;
-            length--;
+    static boolean isPalindrome(String s) {
+        if(s.length() == 1){
             return true;
         }
-       
+        if(s.charAt(0) == s.charAt(s.length()-1))
+        {
+           return isPalindrome(s.substring(1,s.length() -1));         
+        }else{
+            return false;
+        }
+    }
+    
+    
+    //problem 6
+    public int marbles(int[] bags, int max){
+        if(bags.length == 0)
+        {
+            return 0;
+        }
+        int[] leftovers = new int[bags.length-1];
+        int aBag= bags[0];
+        for(int i = 0; i < leftovers.length;i++)
+        {
+            leftovers[i] = bags[i+1];
+        }
+        
+        int with = aBag + marbles(leftovers,max-aBag);
+        int without = marbles(leftovers,max);
+        
+        if(with > without && with <= max)
+        {
+             return with;
+        }else if(without <= max)
+        {
+            return without;
+        }else{
+            return 0;
+        }
     }
 }
