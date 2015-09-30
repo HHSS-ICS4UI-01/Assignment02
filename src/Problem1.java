@@ -19,13 +19,15 @@ public class Problem1 {
         Scanner input = new Scanner(System.in);
 //        System.out.println("Enter a number");
 //        int n = input.nextInt();
+        
         System.out.println("Enter a word");
         String word = input.nextLine();
         int a = word.length();
         
 //        System.out.println("Enter a base between 2-16");
 //        int b = input.nextInt();
-        System.out.println(palindrome(word, a));
+        
+        System.out.println(isPalindrome(word));
 
 
     }
@@ -92,19 +94,56 @@ public class Problem1 {
            
        }
     
-        static boolean palindrome(String s,int length){
-            boolean palin = false;
+        static boolean isPalindrome(String s){
+           
             
-            if (length <= 1) {
+            if (s.length() <= 1) {
                 
-               palin = false;
+               return true;
             }
-            return palin;
+            if (s.charAt(0) == s.charAt(s.length() - 1)) {
+                return isPalindrome(s.substring(1,s.length()-1));
+            }else{
+                return false;
+            }
             
             
             
             
                    
+        }
+        
+        public int marbles(int[] bags, int max){
+            if (bags.length == 0) {
+                return 0;
+            }
+            
+            int[] leftovers = new int[bags.length-1];
+            int aBag = bags[0];
+            
+
+            for (int i = 0; i < leftovers.length; i++) {
+                leftovers[i] = bags[i+1];
+            }
+            
+            int with = aBag + marbles(leftovers, max -aBag);
+            int without = marbles(leftovers,max);
+            
+            if (with > without && with <= max) {
+                return with;
+            }else if (without <= max) {
+                return without;
+            }else{
+                return 0;
+            }
+                  
+            
+            
+            
+            
+            
+            
+            
         }
     
     
