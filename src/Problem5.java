@@ -25,7 +25,7 @@ public class Problem5 {
              
         if(s.charAt(0) == s.charAt(s.length()-1)) 
         {
-         // check for first and last char of String:
+         // check for first and last letter of String:
          //if they are same then do the same thing for a substring with first and last char removed
          //Repeat until string completes or condition fails
         

@@ -16,29 +16,35 @@ public class Problem6 {
      * @param args the command line arguments
      */
     
-    static int marbles(int n, int[] array) 
+    static int marbles(int[] array, int max) 
     {
+        if(array.length == 0) {
+            return 0;
+        }
         //if a bag has the exact maximum it returns the maximum
         for(int i = 0; i < array.length; i ++) 
         {
-            if(array[i] == n) 
+            if(array[i] == max) 
             {
-                return n;
+                return max;
             }
         }
-        //if the maximum is 0 no marbles can fit
-        if(n == 0) 
-        {
-            return 0;
+        
+        
+        int[] leftOvers = new int[array.length - 1];
+        int aBag = array[0];
+        for(int i = 0; i <leftOvers.length; i++) {
+            leftOvers[i] = array[i+1];
+        }
+        int with = aBag + marbles(leftOvers, max - aBag);
+        int withOut = marbles(leftOvers, max);
+        
+        if(with > withOut  && with < max) {
+            return with;
+        } else if(withOut <= max) {
+            return withOut;
         } else {
-            int biggest = 0;
-            for(int i = 0; i < array.length; i ++) 
-            {
-                if(array[i] > biggest) {
-                    array[i] = biggest;
-                }
-            }
-            return marbles(n, array);
+            return 0;
         }
         
     }
@@ -66,7 +72,7 @@ public class Problem6 {
         }
         
         //outputting the maximum amount of marbles that can fit
-        System.out.println(marbles(max, array));
+        System.out.println(marbles(array, max));
         
     }
 }
