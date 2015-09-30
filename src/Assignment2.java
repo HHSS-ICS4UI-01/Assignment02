@@ -27,6 +27,7 @@ public class Assignment2 {
         
         //System.out.println(Convert(num,8));
         System.out.println(marbles(50,num));
+        
     }
 
     public static int sumDigits(int n) {
@@ -121,6 +122,7 @@ public class Assignment2 {
        if(n.charAt(0)==n.charAt(length-1)){
        String x = n.substring(1, length-1);
            
+       
        return isPalindrome(x);
          } else {
        
@@ -130,10 +132,29 @@ public class Assignment2 {
     }
     
     public static int marbles(int max, int[] bags){
-        return 0;
+        if(bags.length == 0){
+            return 0;
+        }
+        int [] leftOvers = new int[bags.length - 1];
+        int aBag = bags[0];
         
-    }
+        for (int i = 0; i < leftOvers.length; i++) {
+         leftOvers[i] = bags[i+1];
+        }
+        
+        int with = aBag+marbles(max-aBag,leftOvers);
+        int without = marbles(max,leftOvers);
+        
+        if(with>without && with<=max){
+            return with;
+        }else if(without<=max){
+            return without;
+        
+    }else{
+            return 0;
+        }
     
+    }
     
     
     
