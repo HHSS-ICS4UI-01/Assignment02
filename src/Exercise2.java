@@ -16,7 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(jimmysMarbles(new int[]{3,4}, 4, 0));
+        System.out.println(jimmysMarblesSecondSolution(new int[]{3,4}, 4, 0));
     }
     
     public static int sumDigits(int n)
@@ -63,22 +63,46 @@ public class Exercise2 {
         }
         return s.charAt(0) == s.charAt(length-1) && isPalindrome(s.substring(1, length), length-2);
     }
-    
-    public static int jimmysMarbles(int[] bags, int limit, int sum)
+    /*
+    public static int jimmysMarbles(int[] bags, int limit)
     {
-        if (bags.length == 0)
+        if (bags.length == 0) // base case, number was not selected
         {
             return 0;
         }
-        
         int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
         
-        if (bags[0] + sum > limit)
+        // assuming first bag was chosen:
+        int newLimit = limit - bags[0]; // decrement the marble limit by the amount that was added, to be used by next iteration
+        int chosen = bags[0] + jimmysMarbles(shortened, newLimit);
+        // assuming first bag was not chosen:
+        int notChosen = jimmysMarbles(shortened, limit); // keep same limit as no marbles were added
+            
+        if (chosen <= limit && chosen > notChosen) // because of the limit difference between chosen and notChosen, chosen could potentially be smaller than notChosen
         {
-            return jimmysMarbles(shortened, limit, sum);
+            return chosen;
         }
-        return bags[0] + jimmysMarbles(shortened, limit, sum+bags[0]);
+        return notChosen;
+    }*/
+    
+    public static int jimmysMarblesSecondSolution(int[] bags, int limit, int curSum)
+    {
+        if (bags.length == 0) // base case, number was not selected
+        {
+            return 0;
+        }
+        int[] shortened = Arrays.copyOfRange(bags, 1, bags.length);
         
+        // assuming first bag was chosen:
+        int newSum = curSum + bags[0]; // decrement the marble limit by the amount that was added, to be used by next iteration
+        int chosen = bags[0] + jimmysMarblesSecondSolution(shortened, limit, newSum);
+        // assuming first bag was not chosen:
+        int notChosen = jimmysMarblesSecondSolution(shortened, limit, curSum); // keep same limit as no marbles were added
+            
+        if (newSum <= limit && chosen > notChosen) // because of the limit difference between chosen and notChosen, chosen could potentially be smaller than notChosen
+        {
+            return chosen;
+        }
+        return notChosen;
     }
-        
 }
