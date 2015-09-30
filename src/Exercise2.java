@@ -22,27 +22,27 @@ public class Exercise2 {
         System.out.println(triAns);
         
         //problem 3 output
-        String binNum = binaryConvert(64);
-        System.out.println(binNum);
+        String binConvert = binaryConvert(64);
+        System.out.println(binConvert);
         
         //problem 4 output
-        String baseNum = convert(1000, 16);
-        System.out.println(baseNum);
+        String numConvert = convert(1000, 16);
+        System.out.println(numConvert);
         
         //problem 5 output
         boolean palindrome = isPalindrome("racecar", 7);
         System.out.println(palindrome);
         
         //problem 6 output
-        int[] nums = {12,14,18,33,34};
-        int max = marbles(50, nums);
-        //System.out.println(max);
+        int[] bags = {12,18,22,67,50,23};
+        int maxMarbles = marbles(100, bags);
+        System.out.println(maxMarbles);
         
     }
     
     //problem 1
     static int sumDigits(int n){
-        //if number is less than 9
+        //if number entered is less than 9
         if(n <= 9)
         {
             //return the number to the user
@@ -59,15 +59,17 @@ public class Exercise2 {
     
     //problem 2
     static int triangle(int n){ 
-        //if number is less than or equal to 1
+        //if number of rows is less than or equal to 1
         if(n <= 1)
         {
             //return the number to the user
             return n;
-            //if number is greater than 1
-        }else
+            
+        }
+        //if number of rows is greater than 1
+        else
         {
-            //return the sum of the number + the number subtract 1
+            //return the sum of the number plus the number subtract 1
             return n + triangle(n - 1);
         }
        
@@ -91,6 +93,7 @@ public class Exercise2 {
         }else
         {      
             //return the quotient of the number divided by 2
+            //and the remainder of the number divided by 2
             return binaryConvert(n / 2) + n%2;    
         }     
             
@@ -105,13 +108,9 @@ public class Exercise2 {
         {
             //return the number as a string
             return String.valueOf(n);
-//        }else if(b > 2 && n < 10)
-//        {
-//            return String.valueOf(n);
-//        }
         }
         
-        //if quotient of number is greater than 9
+        //if remainder of number is greater than 9
             else if(n % b > 9){
             //convert to hexadecimal
             
@@ -174,29 +173,45 @@ public class Exercise2 {
     }
     
     //problem 6
-    static int marbles(int n, int[] m){
-        //set counter i to 0
-        int i = 0;
+    static int marbles(int max, int[] bags){
         
-        int mTotal = 0;
+        //if there are no bags of marbles
+        if(bags.length == 0){
+            //return a 0 to the user
+            return 0;
+        }
+        //creates an array for all bags but one
+        int[] leftovers = new int[bags.length - 1];
         
+        //assigns the first bag to a variable
+        int aBag = bags[0];
         
-        
-        //if total marbles in the two bags is greater than the number the drawer can hold
-        if(m[i] + m[i+1] >= n)
+        //assign each bag except for the first bag to leftovers
+        for(int i = 0; i < leftovers.length; i++)
         {
-            //return the total number of marbles the drawer can hold to the user
-            return n;
-        //if the drawer cannot hold any marbles    
-        }else//(m[i] + m[i+1] < n)
-        {//return a zero to the user
-            i++;
-            return m[i] + m[i+1];
+            leftovers[i] = bags[i + 1];
+        }
+        
+        //count the total number of marbles including the first bag
+        int with = aBag + marbles(max - aBag, leftovers);
+        //count the total number of marbles excluding the first bag
+        int without = marbles(max, leftovers);
+        
+        //if there are more marbles including the first bag than without it
+        //and if the total marble count is less than the max capacity
+        if(with > without && with <= max){
+            //return total number of marbles including the first bag to the user
+            return with;
+            //if there are more marbles excluding the first bag than with it
+            //and if the total marble count is less than the max capacity
+        }else if(without <= max){
+            //return total number of marbles excluding the first bag to the user
+            return without;
+            //if both marble totals are greater than the max capacity
+        }else{
+            //return a 0 to the user
+            return 0;
         }
             
-//        }else
-//        {
-//            return i++;
-//        }   
     }
 }
