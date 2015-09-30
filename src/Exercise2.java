@@ -130,10 +130,36 @@ public class Exercise2 {
             return false;
         }
     }
-    
+    //Problem 6
+    static int marbles(int[] bags, int max)
+    {
+        if(bags.length == 0)
+        {
+            return 0;
+        }
+        int[] leftovers = new int[bags.length - 1];
+        int aBag = bags[0];
+        for(int i = 0; i < leftovers.length; i++)
+        {
+            leftovers[i] = bags[i + 1];
+        }
+        int with = aBag + marbles(leftovers, max - aBag);
+        int without = marbles(leftovers, max);
+        if(with > without && with <= max)
+        {
+            return with;
+        }else if(without <= max)
+        {
+            return without;
+        }else
+        {
+            return 0;
+        }
+    }
     
     //Main Method For Testing
     public static void main(String[] args) {
+        //Remove "//" in all lines other than the title of a Problem to run tests
         Scanner input = new Scanner(System.in);
         //Problem 1
         //System.out.println("Enter in a number to receive it's sum of digits:");
@@ -152,15 +178,29 @@ public class Exercise2 {
         //System.out.println(num + " in binary is " + binaryConvert(num));
         
         //Problem 4
-        //System.out.println("Enter in a number to convert");
+        //System.out.println("Enter in a number to convert to a set base case");
         //int num = input.nextInt();
         //System.out.println("Enter a number for the base you want the number converted in");
         //int base = input.nextInt();
         //System.out.println(num + " in base " + base + " is " + convert(num,base));
         
         //Problem 5
-        //System.out.println("Please enter in a word to check if a palindrome");
+        //System.out.println("Please enter in a word to check if it is a palindrome");
         //String word = input.nextLine();
         //System.out.println("Is " + word + " a palindrome? " + isPalindrome(word, word.length()));
+        
+        //Problem 6
+        //System.out.println("Input the maximum amount of marbles");
+        //int max = input.nextInt();
+        //System.out.println("How many bags of marbles are there?");
+        //int bags = input.nextInt();
+        //System.out.println("Enter in the amount of marbles in each bag on separate lines");
+        //int[] marbles = new int[bags];
+        //for(int i = 0; i < bags; i++)
+        //{
+        //    marbles[i] = input.nextInt();
+        //}
+        //System.out.println("The maximum number of marbles that can fit inside the box is "
+        //+ marbles(marbles, max));
     }
 }
