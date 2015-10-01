@@ -27,6 +27,7 @@ public class Problem1 {
         } else {
             //mod the number and add the mod to the next single number 
             return n % 10 + sumDigits(n / 10);
+            
         }
     }
 
