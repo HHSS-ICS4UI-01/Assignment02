@@ -21,10 +21,20 @@ public class Recursion {
         int n = in.nextInt();
         System.out.println(sumDigits(n));
         
+        //question 2
+        System.out.println("enter a level on the triangle");
+        int u = in.nextInt();
+        System.out.println(triangle(u));
+        
         //question 3
         System.out.println("enter binary num to be converted");
         int z= in.nextInt();
         System.out.println(binaryConvert(z));
+        
+        // Querstion 5
+        System.out.println("enter a word to see if it is a palindrome");
+        String t = in.nextLine();
+        System.out.println(palindrome(in.nextLine()));
         
         
         //question 6
@@ -53,6 +63,24 @@ public class Recursion {
             return "" + n;
         }
         return binaryConvert(n /2)+ n%2;
+    }
+    static boolean palindrome(String n){
+        if(n.length() == 1 || n.length()==0){
+            return true;
+        }
+        if(n.charAt(0) == n.charAt(n.length()-1)){
+        return palindrome(n.substring(1,n.length()-1));
+    }
+        else{
+            return false;
+        }   
+        
+    }
+    static int triangle(int n){
+        if( n == 1){
+            return 1;
+        }
+        return n +triangle(n-1);
     }
 
     static int marbles(int[] bags, int max) {
