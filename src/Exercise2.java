@@ -68,7 +68,7 @@ public class Exercise2 {
     }
 
     static String convert(String n, String b) {
-        return "seagull";
+        return null;
     }
 
     static int marbles(int[] bags, int max) {
