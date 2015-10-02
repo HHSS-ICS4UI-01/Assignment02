@@ -21,7 +21,10 @@ public class Recursion {
         int n = in.nextInt();
         System.out.println(sumDigits(n));
         
-        
+        //question 3
+        System.out.println("enter binary num to be converted");
+        int z= in.nextInt();
+        System.out.println(binaryConvert(z));
         
         
         //question 6
@@ -36,6 +39,7 @@ public class Recursion {
             mabs[i] = in.nextInt();
         }
         System.out.println(marbles(mabs,max)); 
+        
         // TODO code application logic here
     }
     static int sumDigits(int n){
@@ -43,6 +47,12 @@ public class Recursion {
             return n;
         }
         return n % 10 + sumDigits(n/10);
+    }
+    static String binaryConvert(int n) {
+        if(n== 0 ||n == 1) {
+            return "" + n;
+        }
+        return binaryConvert(n /2)+ n%2;
     }
 
     static int marbles(int[] bags, int max) {
