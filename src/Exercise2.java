@@ -60,11 +60,12 @@ public class Exercise2 {
         }
     }
 
-    static int binaryConvert(int n) {
+    static String binaryConvert(int n) {
         if (n == 1 || n == 0) {
-            return n;
+            return "" + n;
+        } else {
+          return binaryConvert(n/2) + n % 2;  
         }
-        return binaryConvert(n / 2) * 10 + n % 2;
     }
 
     static String convert(String n, String b) {
