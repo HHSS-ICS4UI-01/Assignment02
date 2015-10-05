@@ -16,26 +16,32 @@ public class Problem1 {
      */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+
+
         System.out.println("Input a number");
         int n = input.nextInt();
         System.out.println("sumDigits(" + n + ") = " + sumDigits(n));
+
+
+
         System.out.println("Input the amount of rows in the triangle.");
-         n = input.nextInt();
-         System.out.println("triangle(" + n + ") = " + triangle(n));
+        n = input.nextInt();
+        System.out.println("triangle(" + n + ") = " + triangle(n));
+
+        System.out.println("Input a number to convert to Binary");
+        n = input.nextInt();
+        System.out.println(n + " in binary = " + binaryConvert(n));
+
+
+
+
     }
 
     static int sumDigits(int n) {
-        int leftmost = n / 10;
-        //Left digits
-        int left = leftmost / 10;
-        //Left digit of "leftmost"
-        int rightleft = leftmost % 10;
-        //Right digit of "leftmost"
-        int rightmost = n % 10;
-        //Last right digit
-
-        return (left + rightleft + rightmost);
-
+        if (n < 10 && n > 0) {
+            return n;
+        }
+        return n % 10 + sumDigits(n / 10);
     }
 
     static int triangle(int n) {
@@ -45,9 +51,25 @@ public class Problem1 {
             return triangle(n - 1) + n;
         }
     }
+
+    static String binaryConvert(int n) {
+        if (n <=1 && n >=0) {
+            return n + "";
+        }
+        return binaryConvert(n / 2) + n % 2;
+    }
     
-    static int binaryConvert(int n){
+    static int convert(int n, int b){
+        return 0;
         
+    }
+    
+    static String isPalindrome(String s, int length){
+        return null;
+        
+    }
+    
+    static int marblesInBox(int n, int s[] ){
         return 0;
         
     }
