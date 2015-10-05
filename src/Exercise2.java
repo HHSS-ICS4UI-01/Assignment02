@@ -28,11 +28,17 @@ public class Exercise2 {
         n = in.nextInt();
         System.out.println(binaryConvert(n));
 
-        System.out.println("Enter a positive integer plz: ");
-        int x = in.nextInt();
+        System.out.print("Enter a positive integer plz: ");
+        n = in.nextInt();
         System.out.print("Enter a base between 2-16 plz: ");
-        int y = in.nextInt();
+        int b = in.nextInt();
+        System.out.println(convert(n, b));
 
+        in.nextLine();
+        System.out.print("Enter a word plz: ");
+        String s = in.nextLine();
+        System.out.println(isPalindrome(s, s.length()));
+        
         System.out.print("Enter the number of bags plz: ");
         n = in.nextInt();
         int[] bags = new int[n];
@@ -61,17 +67,61 @@ public class Exercise2 {
     }
 
     static String binaryConvert(int n) {
-        if (n == 1 || n == 0) {
+        if (n == 1) {
             return "" + n;
         } else {
-          return binaryConvert(n/2) + n % 2;  
+            return binaryConvert(n / 2) + n % 2;
         }
     }
 
-    static String convert(String n, String b) {
-        return null;
+    static String letters(int n, int b) {
+        if (n == 0 || n == b) {
+            return "" + n;
+        } else if (b > 10 && n == 10) {
+            return " A";
+        } else if (b > 10 && n == 11) {
+            return " B";
+        } else if (b > 10 && n == 12) {
+            return " C";
+        } else if (b > 10 && n == 13) {
+            return " D";
+        } else if (b > 10 && n == 14) {
+            return " E";
+        } else if (b > 10 && n == 15) {
+            return " F";
+        }
+        return "";
+    }
+    static String convert(int n, int b) {
+        if (n == 0 || n == b) {
+            return "" + n;
+        } else if (b > 10 && n == 10) {
+            return " A";
+        } else if (b > 10 && n == 11) {
+            return " B";
+        } else if (b > 10 && n == 12) {
+            return " C";
+        } else if (b > 10 && n == 13) {
+            return " D";
+        } else if (b > 10 && n == 14) {
+            return " E";
+        } else if (b > 10 && n == 15) {
+            return " F";
+        }
+        return convert(n / b, b) + letters(n % b, b);
     }
 
+    static boolean isPalindrome(String s, int length) {
+        if (length == 1 || length == 0) {
+            return true;
+        }
+        if (s.charAt(0) == s.charAt(length - 1)) {
+            return isPalindrome(s.substring(1, length - 1), length - 2);
+        } else {
+            return false;
+        }
+        
+    }
     static int marbles(int[] bags, int max) {
         if (bags.length == 0) {
             return 0;
