@@ -31,6 +31,14 @@ public class Recursion {
         int z= in.nextInt();
         System.out.println(binaryConvert(z));
         
+        //question 4
+        System.out.println("enter a number");
+        int k = in.nextInt();
+        System.out.println("enter in a base in the range of 2-16");
+        int b = in.nextInt();
+        System.out.println(convert(k,b));
+        
+        
         // Querstion 5
         System.out.println("enter a word to see if it is a palindrome");
         String t = in.nextLine();
@@ -64,6 +72,46 @@ public class Recursion {
         }
         return binaryConvert(n /2)+ n%2;
     }
+    
+    static String letters(int n, int b)
+    {
+        if(n == 0 || n == b ){
+            return "" + n;
+        }else if(b > 10 && n == 10){
+            return "A"; 
+        }else if(b > 10 && n == 11){
+            return "B"; 
+        }else if(b > 10 && n == 12){
+            return"C"; 
+        }else if(b > 10 && n == 13){
+            return "D"; 
+        }else if(b > 10 && n == 14){
+            return"E"; 
+        }else if(b > 10 && n == 15){
+           return"F"; 
+        }
+        return "";
+    }
+    
+    static String convert(int n, int b){
+        if(n == 0 || n == b ){
+            return "" + n;
+        }else if(b > 10 && n == 10){
+            return "A"; 
+        }else if(b > 10 && n == 11){
+            return "B"; 
+        }else if(b > 10 && n == 12){
+            return"C"; 
+        }else if(b > 10 && n == 13){
+            return "D"; 
+        }else if(b > 10 && n == 14){
+            return"E"; 
+        }else if(b > 10 && n == 15){
+           return"F"; 
+        }
+        return convert(n/b,b) + letters(n%b,b);
+        
+    } 
     static boolean palindrome(String n){
         if(n.length() == 1 || n.length()==0){
             return true;
