@@ -81,7 +81,7 @@ public class Exercise2 {
      * Checks whether or not a word is a palindrome.
      * @param word the string to be compared.
      * @param length the length of the string.
-     * @return 
+     * @return true if the word length is 0; otherwise, whether or not the inner strings are palindromes
      */
     public static boolean isPalindrome(String word, int length)
     {
@@ -103,7 +103,7 @@ public class Exercise2 {
      * This method determines the largest number of marbles which can fit into his box.
      * @param bags an array containing the number of marbles in each bag
      * @param limit the maximum number of marbles the box can accommodate
-     * @return 
+     * @return 0, if the number of bags is 0; otherwise, the largest number of marbles which could fit into the box
      */
     public static int jimmysMarbles(int[] bags, int limit)
     {
