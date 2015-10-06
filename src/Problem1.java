@@ -31,6 +31,18 @@ public class Problem1 {
         System.out.println("Input a number to convert to Binary");
         n = input.nextInt();
         System.out.println(n + " in binary = " + binaryConvert(n));
+        
+        System.out.println("");
+        n = input.nextInt();
+       int b = input.nextInt();
+        System.out.println("");
+        
+        System.out.println("");
+        String s = input.nextLine();
+        
+        System.out.println("");
+        n = input.nextInt();
+        int f = input.nextInt();
 
 
 
@@ -69,7 +81,7 @@ public class Problem1 {
         
     }
     
-    static int marblesInBox(int n, int s[] ){
+    static int marblesInBox(int n, int f[] ){
         return 0;
         
     }
