@@ -32,9 +32,9 @@ public class Recursion {
         System.out.println(binaryConvert(z));
         
         //question 4
-        System.out.println("enter a number");
+        System.out.println("enter a number to convert");
         int k = in.nextInt();
-        System.out.println("enter in a base in the range of 2-16");
+        System.out.println("enter in a base to convert the number in the range of 2-16");
         int b = in.nextInt();
         System.out.println(convert(k,b));
         
@@ -75,8 +75,9 @@ public class Recursion {
     
     static String letters(int n, int b)
     {
-        if(n == 0 || n == b ){
+        if(n >= 0 && n <= 9 ){
             return "" + n;
+            
         }else if(b > 10 && n == 10){
             return "A"; 
         }else if(b > 10 && n == 11){
@@ -94,7 +95,7 @@ public class Recursion {
     }
     
     static String convert(int n, int b){
-        if(n == 0 || n == b ){
+        if(n >= 0 && n < 9 ){
             return "" + n;
         }else if(b > 10 && n == 10){
             return "A"; 
