@@ -15,7 +15,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      
+        System.out.println(convert(10, 15));
     }
 
     //this method returns the sum of the digits of a given number
@@ -45,27 +45,9 @@ public class Exercise2 {
     //this method converts any whole number into binary base 0 to 16
     public static String convert(int n, int b) {
         if (n < b) { //if the remainder is less than the base
-            return "" + n % b;
+            return "" + Integer.toHexString(n % b).toUpperCase();
         }
-
-        //this next block of code accounts for when there is a two digit remainder
-        if (n % b == 10) {
-            return convert(n / b, b) + "A";
-        } else if (n % b == 11) {
-            return convert(n / b, b) + "B";
-        } else if (n % b == 12) {
-            return convert(n / b, b) + "C";
-        } else if (n % b == 13) {
-            return convert(n / b, b) + "D";
-        } else if (n % b == 14) {
-            return convert(n / b, b) + "E";
-        } else if (n % b == 15) {
-            return convert(n / b, b) + "F";
-        } //return binary normally if the remainder is less than 10
-        else {
-            return "" + convert(n / b, b) + n % b;
-        }
-
+        return "" + convert(n / b, b) + Integer.toHexString(n % b).toUpperCase(); //recursively call back to the method 
     }
 
     //this method checks if a word read forwards is the same read backwards
@@ -90,7 +72,7 @@ public class Exercise2 {
         int secondOption = jimmyMarbles(max, firstShort); //second case: not including the first number
 
         //take the best choice out of the two cases
-        if (firstOption > secondOption && firstOption <= max) { 
+        if (firstOption > secondOption && firstOption <= max) {
             return firstOption;
         }
         return secondOption;
