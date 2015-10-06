@@ -36,7 +36,7 @@ public class Exercise2 {
     /**
      * Finds the sum of all the layers in a triangle (eg, triangle w/ 3 layers gives 1+2+3 = 6)
      * @param n the number of layers of the triangle
-     * @return if number of rows is 0, return 0. Otherwise, return sum of rows in triangle
+     * @return 0, if the number of rows is 0; otherwise, the sum of rows in triangle
      */
     public static int triangle(int n)
     {
