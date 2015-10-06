@@ -79,7 +79,7 @@ public class Exercise2 {
     
     /**
      * Checks whether or not a word is a palindrome.
-     * @param s the string to be compared.
+     * @param word the string to be compared.
      * @param length the length of the string.
      * @return 
      */
