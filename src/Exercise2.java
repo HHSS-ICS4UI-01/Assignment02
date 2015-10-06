@@ -16,7 +16,7 @@ public class Exercise2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //'ello
+        System.out.println(convert(10, 14));
     }
     //find the sum of the digits in a number
 
@@ -61,8 +61,8 @@ public class Exercise2 {
     //convert any number into any base
 
     public static String convert(int n, int b) {
-        if (n / b <= 0) { // if the number becomes zero in the next( last) division 
-            return "" + n % b;
+        if (n<b) { // if the number becomes zero in the next( last) division 
+            return "" + Integer.toHexString(n % b).toUpperCase(); // return the remainder to a hexadecimal string(in case it's 10)
         } else {
             if (n % b < 10) { //if the number %base is less than ten
                 return "" + convert(n / b, b) + (n % b); // find the remainder and add it to the remainder of the next (num/b)
