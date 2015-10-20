@@ -32,20 +32,28 @@ public class Problem1 {
         n = input.nextInt();
         System.out.println(n + " in binary = " + binaryConvert(n));
         
-        System.out.println("");
+
+        System.out.println("enter a number to convert");
         n = input.nextInt();
-       int b = input.nextInt();
-        System.out.println("");
-        
-        System.out.println("");
-        String s = input.nextLine();
-        
-        System.out.println("");
+        System.out.println("enter in a number in the range of 2-16 to convert the number");
+        int l = input.nextInt();
+        System.out.println(convert(n, l));
+
+        System.out.println("enter a word to see if it is a palindrome");
+        input.nextLine();
+        System.out.println(isPalindrome(input.nextLine()));
+
+        System.out.println("How many bags of marbles?");
         n = input.nextInt();
-        int f = input.nextInt();
+        System.out.println("Enter the maximum amount of marbles that can fit in the box.");
+        int maxMarb = input.nextInt();
+        int[] marbles = new int[n];
+        System.out.println("Enter how many marbles are in the  " + n + " bags from largest to smallest");
 
-
-
+        for (int i = 0; i < n; i++) {
+            marbles[i] = input.nextInt();
+        }
+        System.out.println(marbles(marbles, maxMarb));
 
     }
 
@@ -65,24 +73,81 @@ public class Problem1 {
     }
 
     static String binaryConvert(int n) {
-        if (n <=1 && n >=0) {
+        if (n <= 1 && n >= 0) {
             return n + "";
         }
         return binaryConvert(n / 2) + n % 2;
     }
-    
-    static int convert(int n, int b){
-        return 0;
-        
+
+    static String Let(int n, int l) {
+        if (n >= 0 && n <= 9) {
+            return "" + n;
+
+        } else if (l > 10 && n == 10) {
+            return "A";
+        } else if (l > 10 && n == 11) {
+            return "B";
+        } else if (l > 10 && n == 12) {
+            return "C";
+        } else if (l > 10 && n == 13) {
+            return "D";
+        } else if (l > 10 && n == 14) {
+            return "E";
+        } else if (l > 10 && n == 15) {
+            return "F";
+        }
+        return "";
     }
-    
-    static String isPalindrome(String s, int length){
-        return null;
-        
+
+    static String convert(int n, int l) {
+        if (n >= 0 && n < 9) {
+            return "" + n;
+        } else if (l > 10 && n == 10) {
+            return "A";
+        } else if (l > 10 && n == 11) {
+            return "B";
+        } else if (l > 10 && n == 12) {
+            return "C";
+        } else if (l > 10 && n == 13) {
+            return "D";
+        } else if (l > 10 && n == 14) {
+            return "E";
+        } else if (l > 10 && n == 15) {
+            return "F";
+        }
+        return convert(n / l, l) + Let(n % l, l);
     }
-    
-    static int marblesInBox(int n, int f[] ){
-        return 0;
-        
+
+    static String isPalindrome(String n) {
+        if (n.length() == 1 || n.length() == 0) {
+            return "true";
+        }
+        if (n.charAt(0) == n.charAt(n.length() - 1)) {
+            return isPalindrome(n.substring(1, n.length() - 1));
+        } else {
+            return "false";
+        }
+
+    }
+
+    static int marbles(int[] bags, int max) {
+        if (bags.length == 0) {
+            return 0;
+        }
+        int[] leftOvers = new int[bags.length - 1];
+        int aBag = bags[0];
+        for (int i = 0; i < leftOvers.length; i++) {
+            leftOvers[i] = bags[i + 1];
+        }
+        int with = aBag + marbles(leftOvers, max - aBag);
+        int withOut = marbles(leftOvers, max);
+        if (with > withOut && with <= max) {
+            return with;
+        } else if (withOut <= max) {
+            return withOut;
+        } else {
+            return 0;
+        }
+
     }
 }
